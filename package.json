@@ -1,6 +1,6 @@
 {
   "name": "zecko-js",
-  "version": "1.0.0",
+  "version": "0.0.1-dev.1",
   "description": "Zecko JS SDK",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -42,7 +42,6 @@
   "engines": {
     "node": ">=10"
   },
-  "dependencies": {},
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
@@ -102,5 +101,9 @@
     "exclude": [
       "**/*.spec.js"
     ]
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "winston": "^3.7.2"
   }
 }
