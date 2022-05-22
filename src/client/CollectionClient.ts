@@ -19,10 +19,8 @@ export class CollectionClient extends BaseClient {
       return data;
     } catch (error) {
       throw new Error(
-        `Failed to get collection with id ${id}. Status: ${
-          error.response.status
-        }. Error: ${error.message}. Details: ${JSON.stringify(
-          error.response.data
+        `Failed to get collection with id ${id}. Error: ${JSON.stringify(
+          error
         )}`
       );
     }
