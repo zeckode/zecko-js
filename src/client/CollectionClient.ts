@@ -4,6 +4,9 @@ import { APIConstants } from './../constants/APIConstants';
 import { BaseClient } from './BaseClient';
 
 export class CollectionClient extends BaseClient {
+  /**
+   * @ignore
+   */
   public constructor(private readonly accessToken: string) {
     super();
   }
@@ -18,11 +21,7 @@ export class CollectionClient extends BaseClient {
 
       return data;
     } catch (error) {
-      throw new Error(
-        `Failed to get collection with id ${id}. Error: ${JSON.stringify(
-          error
-        )}`
-      );
+      throw new Error(`Failed to get collection with id ${id}. Error: ${JSON.stringify(error)}`);
     }
   }
 }

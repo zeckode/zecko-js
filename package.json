@@ -9,15 +9,15 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "build": "yarn generate-barrels && run-p build:*",
+    "build": "yarn prepare && yarn generate-barrels && run-p build:*",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
     "fix": "run-s fix:*",
-    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write --print-width 120",
     "fix:lint": "eslint src --ext .ts --fix",
     "test": "run-s build test:*",
     "test:lint": "eslint src --ext .ts",
-    "test:prettier": "prettier \"src/**/*.ts\" --list-different",
+    "test:prettier": "prettier \"src/**/*.ts\" --list-different --print-width 120",
     "test:spelling": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
     "test:unit": "nyc --silent ava",
     "check-cli": "run-s test diff-integration-tests check-integration-tests",
@@ -38,7 +38,7 @@
     "reset-hard": "git clean -dfx && git reset --hard && yarn",
     "prepare-release": "run-s reset-hard test cov:check doc:html version doc:publish",
     "prepare": "husky install",
-    "generate-barrels": "barrelsby --directory ./src --delete",
+    "generate-barrels": "barrelsby --directory ./src",
     "generate-docs": "yarn typedoc --out docs src/index.ts"
   },
   "engines": {
