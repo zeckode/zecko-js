@@ -3,7 +3,14 @@ import { SDKParams } from '../types/SDKParams';
 import { CollectionClient } from './CollectionClient';
 
 export class Zecko {
+  /**
+   * @ignore
+   */
   readonly accessToken: string;
+
+  /**
+   * @ignore
+   */
   readonly collectionClient: CollectionClient;
 
   public constructor(sdkParams: SDKParams) {

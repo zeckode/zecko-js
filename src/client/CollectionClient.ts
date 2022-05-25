@@ -11,6 +11,10 @@ export class CollectionClient extends BaseClient {
     super();
   }
 
+  /**
+   *
+   * @param id Collection ID
+   */
   async get(id: string): Promise<Collection> {
     const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
 
