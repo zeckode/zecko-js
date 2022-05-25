@@ -1,7 +1,7 @@
-import { Base } from './Base';
+import { BaseResponse } from './BaseResponse';
 import { Image } from './Image';
 
-export type Collection = Base & {
+export type Collection = BaseResponse & {
   readonly id: string;
   readonly description: string;
   readonly handle: string;
