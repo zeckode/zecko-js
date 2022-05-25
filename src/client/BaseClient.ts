@@ -41,6 +41,9 @@ export class BaseClient {
     return this.#request<T>({ url, params, headers, method: 'PATCH' as Method });
   }
 
+  /**
+   * @ignore
+   */
   #request<T>(request: AxiosRequestConfig) {
     return new Promise<T>((resolve, reject) => {
       axios(request)
@@ -51,13 +54,5 @@ export class BaseClient {
           reject(new BaseException(error.response.status, error.response.data.message, error.response.data.timestamp));
         });
     });
-
-    // try {
-    //   console.log("calling");
-    //   return axios.request<T>(request);
-    // } catch (error) {
-    //   console.log("called");
-    //   throw new BaseException(error.response.status, error.response.data.message, error.response.data.timestamp);
-    // }
   }
 }

@@ -8,9 +8,6 @@ export class Zecko {
    */
   readonly accessToken: string;
 
-  /**
-   * @ignore
-   */
   readonly collectionClient: CollectionClient;
 
   public constructor(sdkParams: SDKParams) {
