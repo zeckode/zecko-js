@@ -17,29 +17,15 @@ export class CollectionClient extends BaseClient {
    */
   async get(id: string): Promise<Collection> {
     const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
-
-    try {
-      const { data } = await this._get<Collection>(url, null, {
-        [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
-      });
-
-      return data;
-    } catch (error) {
-      throw new Error(`Failed to get collection with id ${id}. Error: ${JSON.stringify(error)}`);
-    }
+    return this._get<Collection>(url, null, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+    });
   }
 
   async getAll(): Promise<Collection> {
     const url = `${APIConstants.API_BASE_URL}/collections`;
-
-    try {
-      const { data } = await this._get<Collection>(url, null, {
-        [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
-      });
-
-      return data;
-    } catch (error) {
-      throw new Error(`Failed to get all collection Error: ${JSON.stringify(error)}`);
-    }
+    return this._get<Collection>(url, null, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+    });
   }
 }
