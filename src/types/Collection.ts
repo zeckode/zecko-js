@@ -20,10 +20,19 @@ export type CollectionNodes = {
   readonly nodes: readonly Collection[];
 };
 
-export type CollectionsWrapper = {
-  readonly collections: CollectionNodes;
+export type CollectionEdge = {
+  readonly cursor: string;
+  readonly node: Collection;
+};
+
+export type CollectionEdges = {
+  readonly edges: readonly CollectionEdge[];
+};
+
+export type CollectionEdgesWrapper = {
+  readonly collections: CollectionEdges;
 };
 
 export type CollectionsData = {
-  readonly data: CollectionsWrapper;
+  readonly data: CollectionEdgesWrapper;
 };
