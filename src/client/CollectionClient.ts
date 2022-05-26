@@ -1,6 +1,5 @@
-import { Collection } from '../types/Collection';
-
 import { APIConstants } from './../constants/APIConstants';
+import { CollectionData, CollectionsData } from './../types/Collection';
 import { BaseClient } from './BaseClient';
 
 export class CollectionClient extends BaseClient {
@@ -15,31 +14,17 @@ export class CollectionClient extends BaseClient {
    *
    * @param id Collection ID
    */
-  async get(id: string): Promise<Collection> {
+  async get(id: string): Promise<CollectionData> {
     const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
-
-    try {
-      const { data } = await this._get<Collection>(url, null, {
-        [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
-      });
-
-      return data;
-    } catch (error) {
-      throw new Error(`Failed to get collection with id ${id}. Error: ${JSON.stringify(error)}`);
-    }
+    return this._get<CollectionData>(url, null, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+    });
   }
 
-  async getAll(): Promise<Collection> {
+  async getAll(): Promise<CollectionsData> {
     const url = `${APIConstants.API_BASE_URL}/collections`;
-
-    try {
-      const { data } = await this._get<Collection>(url, null, {
-        [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
-      });
-
-      return data;
-    } catch (error) {
-      throw new Error(`Failed to get all collection Error: ${JSON.stringify(error)}`);
-    }
+    return this._get<CollectionsData>(url, null, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+    });
   }
 }

@@ -6,7 +6,7 @@ export * from "./client/BaseClient";
 export * from "./client/CollectionClient";
 export * from "./client/Zecko";
 export * from "./constants/APIConstants";
-export * from "./types/BaseResponse";
+export * from "./exception/BaseException";
 export * from "./types/Collection";
 export * from "./types/Image";
 export * from "./types/SDKParams";
