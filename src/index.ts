@@ -9,4 +9,5 @@ export * from "./constants/APIConstants";
 export * from "./exception/BaseException";
 export * from "./types/Collection";
 export * from "./types/Image";
+export * from "./types/PageInfo";
 export * from "./types/SDKParams";

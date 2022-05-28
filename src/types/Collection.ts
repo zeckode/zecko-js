@@ -1,4 +1,5 @@
 import { Image } from './Image';
+import { PageInfo } from './PageInfo';
 
 export type Collection = {
   readonly id: string;
@@ -6,6 +7,7 @@ export type Collection = {
   readonly handle: string;
   readonly image: Image;
   readonly productsCount: number;
+  readonly title: string;
 };
 
 export type CollectionWrapper = {
@@ -27,6 +29,7 @@ export type CollectionEdge = {
 
 export type CollectionEdges = {
   readonly edges: readonly CollectionEdge[];
+  readonly pageInfo: PageInfo;
 };
 
 export type CollectionEdgesWrapper = {
