@@ -1,6 +1,7 @@
 import { SDKParams } from '../types/SDKParams';
 
 import { CollectionClient } from './CollectionClient';
+import { ProductClient } from './ProductClient';
 
 export class Zecko {
   /**
@@ -10,6 +11,8 @@ export class Zecko {
 
   readonly collectionClient: CollectionClient;
 
+  readonly productClient: ProductClient;
+
   public constructor(sdkParams: SDKParams) {
     if (!sdkParams || !sdkParams.accessToken) {
       throw new Error('Missing required parameter: accessToken');
@@ -17,5 +20,6 @@ export class Zecko {
 
     this.accessToken = sdkParams.accessToken;
     this.collectionClient = new CollectionClient(this.accessToken);
+    this.productClient = new ProductClient(this.accessToken);
   }
 }
