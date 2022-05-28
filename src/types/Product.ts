@@ -44,18 +44,18 @@ export type VarientPrice = {
 };
 
 export type Variants = {
-  readonly edges: readonly VariantEdges[];
+  readonly edges: readonly VariantEdge[];
   readonly pageInfo: PageInfo;
 };
 
-export type VariantEdges = {
-  readonly node: readonly VariantNodes[];
+export type VariantEdge = {
+  readonly node: readonly VariantNode[];
   readonly sku: string;
   readonly taxable: string;
   readonly title: string;
 };
 
-export type VariantNodes = {
+export type VariantNode = {
   readonly availableForSale: boolean;
   readonly compareAtPrice: number;
   readonly displayName: string;
