@@ -19,13 +19,22 @@ export class ProductClient extends BaseClient {
    *                                - If provided, the next product page of that cursor will be returned
    * @returns {Promise<ProductsData>}  The All Products Data with the given Cursor or the first page if no cursor is provided
    */
-  async getAllByCollectionId(collectionId: string, after: string = null): Promise<ProductsData> {
+  async getAllByCollectionId(
+    collectionId: string,
+    after: string = null
+  ): Promise<ProductsData> {
     const searchParams = new URLSearchParams();
     if (after) {
       searchParams.append('after', after);
     }
 
-    const url = `${APIConstants.API_BASE_URL}/products?collectionId=${collectionId}?${searchParams.toString()}`;
+    const searchParamUrl = searchParams.toString()
+      ? `?${searchParams.toString()}`
+      : '';
+
+    const url = `${APIConstants.API_BASE_URL}/products?collectionId=${collectionId}${searchParamUrl}`;
+
+    console.log('URL: ', url);
 
     return this._get<ProductsData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
@@ -43,7 +52,11 @@ export class ProductClient extends BaseClient {
    *                                        - If provided, the next variants page of that cursor will be returned
    * @returns {Promise<ProductData>}  The Product Data of the given ID
    */
-  async getById(id: string, imagesAfter: string = null, variantsAfter: string = null): Promise<ProductData> {
+  async getById(
+    id: string,
+    imagesAfter: string = null,
+    variantsAfter: string = null
+  ): Promise<ProductData> {
     const searchParams = new URLSearchParams();
     if (imagesAfter) {
       searchParams.append('imagesAfter', imagesAfter);
@@ -52,7 +65,11 @@ export class ProductClient extends BaseClient {
       searchParams.append('variantsAfter', variantsAfter);
     }
 
-    const url = `${APIConstants.API_BASE_URL}/products/${id}?${searchParams.toString()}`;
+    const searchParamUrl = searchParams.toString()
+      ? `?${searchParams.toString()}`
+      : '';
+
+    const url = `${APIConstants.API_BASE_URL}/products/${id}${searchParamUrl}`;
 
     return this._get<ProductData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
