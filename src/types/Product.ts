@@ -1,6 +1,6 @@
 import { Image } from './Image';
 
-export type ProductNode = {
+export type Product = {
   readonly description: string;
   readonly descriptionHtml: string;
   readonly featuredImage: Image;
@@ -8,8 +8,8 @@ export type ProductNode = {
   readonly hasOnlyDefaultVariant: string;
   readonly hasOutOfStockVariants: string;
   readonly id: string;
-  readonly images: ImagesWrapper;
-  readonly options: readonly Option[];
+  readonly images: ImageEdges;
+  readonly options: readonly ProductOption[];
   readonly priceRangeV2: PriceRange;
   readonly productType: string;
   readonly status: string;
@@ -17,16 +17,16 @@ export type ProductNode = {
   readonly title: string;
   readonly totalInventory: number;
   readonly totalVariants: number;
-  readonly variants: Variants;
+  readonly variants: VariantEdges ;
   readonly vendor: string;
 };
 
-export type ImagesWrapper = {
+export type ImageEdges = {
   readonly edges: Image[];
   readonly pageInfo: PageInfo;
 };
 
-export type Option = {
+export type ProductOption = {
   readonly id: string;
   readonly name: string;
   readonly position: number;
@@ -34,28 +34,29 @@ export type Option = {
 };
 
 export type PriceRange = {
-  readonly maxVariantPrice: VarientPrice;
-  readonly minVariantPrice: VarientPrice;
+  readonly maxVariantPrice: Money;
+  readonly minVariantPrice: Money;
 };
 
-export type VarientPrice = {
+export type Money = {
   readonly amount: number;
   readonly currencyCode: string;
 };
 
-export type Variants = {
+export type VariantEdges = {
   readonly edges: readonly VariantEdge[];
   readonly pageInfo: PageInfo;
 };
 
 export type VariantEdge = {
-  readonly node: readonly VariantNode[];
+  readonly node: readonly Variant[];
   readonly sku: string;
+  readonly taxCode: string;
   readonly taxable: string;
   readonly title: string;
 };
 
-export type VariantNode = {
+export type Variant = {
   readonly availableForSale: boolean;
   readonly compareAtPrice: number;
   readonly displayName: string;
@@ -63,7 +64,7 @@ export type VariantNode = {
   readonly inventoryQuantity: number;
   readonly position: number;
   readonly price: string;
-  readonly selectedOptions: Option;
+  readonly selectedOptions: ProductOption;
 };
 
 export type PageInfo = {
@@ -74,7 +75,7 @@ export type PageInfo = {
 };
 
 export type ProductsWrapper = {
-  readonly edges: readonly ProductNode[];
+  readonly edges: readonly Product[];
   readonly pageInfo: PageInfo;
 };
 
@@ -83,7 +84,7 @@ export type ProductsData = {
 };
 
 export type ProductWrapper = {
-  readonly product: ProductNode;
+  readonly product: Product;
 };
 
 export type ProductData = {
