@@ -34,14 +34,14 @@ export class CollectionClient extends BaseClient {
    * Paginated collections list of maximum 250 collections. To request further collections, use `after` parameter.
    */
   async getAll(after?: string): Promise<CollectionsData> {
-    const searchParams = new URLSearchParams();
+    const queryParams = new URLSearchParams();
+
     if (after) {
-      searchParams.append('after', after);
+      queryParams.append('after', after);
     }
 
-    const searchParamUrl = searchParams.toString() ? `?${searchParams.toString()}` : '';
-
-    const url = `${APIConstants.API_BASE_URL}/collections${searchParamUrl}`;
+    const queryParamsString = queryParams.toString() ? `?${queryParams.toString()}` : '';
+    const url = `${APIConstants.API_BASE_URL}/collections${queryParamsString}`;
 
     return this._get<CollectionsData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,

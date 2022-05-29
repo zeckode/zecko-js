@@ -23,18 +23,16 @@ export class ProductClient extends BaseClient {
    * Paginated products list of maximum 20 products. To request further products, use `after` parameter.
    */
   async getAllByCollectionId(collectionId: string, after?: string): Promise<ProductsData> {
-    const searchParams = new URLSearchParams();
+    const queryParams = new URLSearchParams();
+
+    queryParams.append('collectionId', collectionId);
+
     if (after) {
-      searchParams.append('after', after);
+      queryParams.append('after', after);
     }
 
-    const searchParamUrl = searchParams.toString()
-      ? `?${searchParams.toString()}`
-      : '';
-
-    const url = `${APIConstants.API_BASE_URL}/products?collectionId=${collectionId}${searchParamUrl}`;
-
-    console.log('URL: ', url);
+    const searchParamsString = queryParams.toString() ? `?${queryParams.toString()}` : '';
+    const url = `${APIConstants.API_BASE_URL}/products${searchParamsString}`;
 
     return this._get<ProductsData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
@@ -59,19 +57,17 @@ export class ProductClient extends BaseClient {
    * use `imagesAfter` and `variantsAfter` parameters respectively.
    */
   async getById(id: string, imagesAfter?: string, variantsAfter?: string): Promise<ProductData> {
-    const searchParams = new URLSearchParams();
+    const queryParams = new URLSearchParams();
     if (imagesAfter) {
-      searchParams.append('imagesAfter', imagesAfter);
+      queryParams.append('imagesAfter', imagesAfter);
     }
+
     if (variantsAfter) {
-      searchParams.append('variantsAfter', variantsAfter);
+      queryParams.append('variantsAfter', variantsAfter);
     }
 
-    const searchParamUrl = searchParams.toString()
-      ? `?${searchParams.toString()}`
-      : '';
-
-    const url = `${APIConstants.API_BASE_URL}/products/${id}${searchParamUrl}`;
+    const searchParamsString = queryParams.toString() ? `?${queryParams.toString()}` : '';
+    const url = `${APIConstants.API_BASE_URL}/products/${id}${searchParamsString}`;
 
     return this._get<ProductData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
