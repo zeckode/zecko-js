@@ -17,7 +17,7 @@ export class CollectionClient extends BaseClient {
    */
   async getbyId(id: string): Promise<CollectionData> {
     const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
-    
+
     return this._get<CollectionData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
@@ -36,9 +36,7 @@ export class CollectionClient extends BaseClient {
       searchParams.append('after', after);
     }
 
-    const url = `${
-      APIConstants.API_BASE_URL
-    }/collections?${searchParams.toString()}`;
+    const url = `${APIConstants.API_BASE_URL}/collections?${searchParams.toString()}`;
 
     return this._get<CollectionsData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,

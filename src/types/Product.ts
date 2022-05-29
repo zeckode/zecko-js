@@ -13,16 +13,16 @@ export type Product = {
   readonly priceRangeV2: PriceRange;
   readonly productType: string;
   readonly status: string;
-  readonly tags: string[];
+  readonly tags: readonly string[];
   readonly title: string;
   readonly totalInventory: number;
   readonly totalVariants: number;
-  readonly variants: VariantEdges ;
+  readonly variants: VariantEdges;
   readonly vendor: string;
 };
 
 export type ImageEdges = {
-  readonly edges: Image[];
+  readonly edges: readonly Image[];
   readonly pageInfo: PageInfo;
 };
 
@@ -30,7 +30,7 @@ export type ProductOption = {
   readonly id: string;
   readonly name: string;
   readonly position: number;
-  readonly values: string[];
+  readonly values: readonly string[];
 };
 
 export type PriceRange = {
