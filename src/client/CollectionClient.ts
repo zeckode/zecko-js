@@ -12,17 +12,37 @@ export class CollectionClient extends BaseClient {
 
   /**
    *
-   * @param id Collection ID
+   * @param {string} id Collection Id
+   * @returns {Promise<CollectionData>}
    */
-  async get(id: string): Promise<CollectionData> {
+  async getbyId(id: string): Promise<CollectionData> {
     const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
+
     return this._get<CollectionData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
 
-  async getAll(): Promise<CollectionsData> {
-    const url = `${APIConstants.API_BASE_URL}/collections`;
+  /**
+   *
+   * @param after
+   * If `data.collections.pageInfo.hasNextPage` is `true`, then request next page by passing
+   * `data.collections.pageInfo.endCursor` as `after` parameter. You can also pass `data.collections.edges[i].cursor`
+   * as `after` parameter to get results after that cursor.
+   *
+   * @returns {Promise<CollectionsData>}
+   * Paginated collections list of maximum 250 collections. To request further collections, use `after` parameter.
+   */
+  async getAll(after?: string): Promise<CollectionsData> {
+    const queryParams = new URLSearchParams();
+
+    if (after) {
+      queryParams.append('after', after);
+    }
+
+    const queryParamsString = queryParams.toString() ? `?${queryParams.toString()}` : '';
+    const url = `${APIConstants.API_BASE_URL}/collections${queryParamsString}`;
+
     return this._get<CollectionsData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });

@@ -4,10 +4,11 @@
 
 export * from "./client/BaseClient";
 export * from "./client/CollectionClient";
+export * from "./client/ProductClient";
 export * from "./client/Zecko";
 export * from "./constants/APIConstants";
 export * from "./exception/BaseException";
 export * from "./types/Collection";
 export * from "./types/Image";
-export * from "./types/PageInfo";
+export * from "./types/Product";
 export * from "./types/SDKParams";
