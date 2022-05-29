@@ -39,7 +39,9 @@ export class CollectionClient extends BaseClient {
       searchParams.append('after', after);
     }
 
-    const url = `${APIConstants.API_BASE_URL}/collections?${searchParams.toString()}`;
+    const searchParamUrl = searchParams.toString() ? `?${searchParams.toString()}` : '';
+
+    const url = `${APIConstants.API_BASE_URL}/collections${searchParamUrl}`;
 
     return this._get<CollectionsData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,

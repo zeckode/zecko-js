@@ -28,7 +28,13 @@ export class ProductClient extends BaseClient {
       searchParams.append('after', after);
     }
 
-    const url = `${APIConstants.API_BASE_URL}/products?collectionId=${collectionId}?${searchParams.toString()}`;
+    const searchParamUrl = searchParams.toString()
+      ? `?${searchParams.toString()}`
+      : '';
+
+    const url = `${APIConstants.API_BASE_URL}/products?collectionId=${collectionId}${searchParamUrl}`;
+
+    console.log('URL: ', url);
 
     return this._get<ProductsData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
@@ -61,7 +67,11 @@ export class ProductClient extends BaseClient {
       searchParams.append('variantsAfter', variantsAfter);
     }
 
-    const url = `${APIConstants.API_BASE_URL}/products/${id}?${searchParams.toString()}`;
+    const searchParamUrl = searchParams.toString()
+      ? `?${searchParams.toString()}`
+      : '';
+
+    const url = `${APIConstants.API_BASE_URL}/products/${id}${searchParamUrl}`;
 
     return this._get<ProductData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
