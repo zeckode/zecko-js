@@ -11,9 +11,9 @@ export class CollectionClient extends BaseClient {
   }
 
   /**
-   * return All Collections of the given Collection Id
-   * @param {string} id  Collection Id
-   * @returns {Promise<CollectionData>}  The Collection Data of the given collection Id
+   *
+   * @param {string} id Collection Id
+   * @returns {Promise<CollectionData>}
    */
   async getbyId(id: string): Promise<CollectionData> {
     const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
@@ -24,13 +24,16 @@ export class CollectionClient extends BaseClient {
   }
 
   /**
-   * return All Collections
-   * @param {string} [after = null] - Cursor of the current page (pass any cursor to get the next objects after the cursor)
-   *                                - If not provided, the first page will be returned
-   *                                - If provided, the next page of that cursor will be returned
-   * @returns {Promise<CollectionsData>}  The All Collections Data with the given Cursor or the first page if no cursor is provided
+   *
+   * @param after
+   * If `data.collections.pageInfo.hasNextPage` is `true`, then request next page by passing
+   * `data.collections.pageInfo.endCursor` as `after` parameter. You can also pass `data.collections.edges[i].cursor`
+   * as `after` parameter to get results after that cursor.
+   *
+   * @returns {Promise<CollectionsData>}
+   * Paginated collections list of maximum 250 collections. To request further collections, use `after` parameter.
    */
-  async getAll(after: string = null): Promise<CollectionsData> {
+  async getAll(after?: string): Promise<CollectionsData> {
     const searchParams = new URLSearchParams();
     if (after) {
       searchParams.append('after', after);

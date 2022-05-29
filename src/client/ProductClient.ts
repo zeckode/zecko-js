@@ -12,14 +12,17 @@ export class ProductClient extends BaseClient {
   }
 
   /**
-   * return All Products of the given Collection Id
-   * @param {string} collectionId - Collection Id
-   * @param {string} [after = null] - cursor of the current page (pass any cursor to get the next product objects after the cursor)
-   *                                - If not provided, the first product page will be returned
-   *                                - If provided, the next product page of that cursor will be returned
-   * @returns {Promise<ProductsData>}  The All Products Data with the given Cursor or the first page if no cursor is provided
+   * @param collectionId Collection Id
+   *
+   * @param after
+   * If `data.products.pageInfo.hasNextPage` is `true`, then request next page by passing
+   * `data.products.pageInfo.endCursor` as `after` parameter. You can also pass `data.products.edges[i].cursor`
+   * as `after` parameter to get results after that cursor.
+   *
+   * @returns {Promise<ProductsData>}
+   * Paginated products list of maximum 20 products. To request further products, use `after` parameter.
    */
-  async getAllByCollectionId(collectionId: string, after: string = null): Promise<ProductsData> {
+  async getAllByCollectionId(collectionId: string, after?: string): Promise<ProductsData> {
     const searchParams = new URLSearchParams();
     if (after) {
       searchParams.append('after', after);
@@ -33,17 +36,23 @@ export class ProductClient extends BaseClient {
   }
 
   /**
-   * return All Products of the given Product Id
-   * @param {string} id - Product Id
-   * @param {string} [imagesAfter = null] - cursor of the imgages of the current page (pass any cursor to get the next images after the cursor)
-   *                                      - If not provided, the first images page will be returned
-   *                                      - If provided, the next images page of that cursor will be returned
-   * @param {string} [variantsAfter = null] - cursor of the variants of the current page (pass any cursor to get the next variants after the cursor)
-   *                                        - If not provided, the first variants page will be returned
-   *                                        - If provided, the next variants page of that cursor will be returned
-   * @returns {Promise<ProductData>}  The Product Data of the given ID
+   * @param id Product Id
+   *
+   * @param imagesAfter
+   * If `data.product.images.pageInfo.hasNextPage` is `true`, then request next page by passing
+   * `data.product.images.pageInfo.endCursor` as `imagesAfter` parameter. You can also pass `data.product.images.edges[i].cursor`
+   * as `imagesAfter` parameter to get results after that cursor.
+   *
+   * @param variantsAfter
+   * If `data.product.variants.pageInfo.hasNextPage` is `true`, then request next page by passing
+   * `data.product.variants.pageInfo.endCursor` as `variantsAfter` parameter. You can also pass `data.product.variants.edges[i].cursor`
+   * as `variantsAfter` parameter to get results after that cursor.
+   *
+   * @returns {Promise<ProductData>}
+   * Has a maximum of 10 images and 5 variants. To request further images and variants,
+   * use `imagesAfter` and `variantsAfter` parameters respectively.
    */
-  async getById(id: string, imagesAfter: string = null, variantsAfter: string = null): Promise<ProductData> {
+  async getById(id: string, imagesAfter?: string, variantsAfter?: string): Promise<ProductData> {
     const searchParams = new URLSearchParams();
     if (imagesAfter) {
       searchParams.append('imagesAfter', imagesAfter);
