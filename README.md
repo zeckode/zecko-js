@@ -60,11 +60,12 @@ return zecko.collectionClient.get('YOUR_COLLECTION_ID');
 return zecko.productClient.getAllByCollectionId('YOUR_COLLECTION_ID');
 ```
 
-[Get product by ID](https://zecko.co/zecko-js/classes/ProductClient.html#getById)
+<b>[Get product by ID](https://zecko.co/zecko-js/classes/ProductClient.html#getById)</b>
 
 ```js
 return zecko.productClient.get('YOUR_PRODUCT_ID');
 ```
 
-- All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js
-- For detailed documentation, visit respective class [docs](https://zecko.co/zecko-js/modules.html).
+>- All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js.
+
+> - For detailed documentation, visit respective class [docs](https://zecko.co/zecko-js/modules.html).
