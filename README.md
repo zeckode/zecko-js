@@ -42,7 +42,7 @@ Every resource method returns a promise. There is no callback support.
 ## Usage examples
 ### [Collections](https://zecko.co/zecko-js/classes/CollectionClient.html)
 
-<b>[Get all collections](https://zecko.co/zecko-js/classes/CollectionClient.html#getAll)<b>
+<b>[Get all collections](https://zecko.co/zecko-js/classes/CollectionClient.html#getAll)</b>
 ```js
 return zecko.collectionClient.getAll();
 ```
