@@ -1,4 +1,5 @@
 import { Image } from './Image';
+import { PageInfo } from './PageInfo';
 
 export type Product = {
   readonly description: string;
@@ -65,13 +66,6 @@ export type Variant = {
   readonly position: number;
   readonly price: string;
   readonly selectedOptions: ProductOption;
-};
-
-export type PageInfo = {
-  readonly endCursor: string;
-  readonly hasNextPage: boolean;
-  readonly haspreviousPage: boolean;
-  readonly startCursor: string;
 };
 
 export type ProductsWrapper = {
