@@ -75,13 +75,7 @@ export class BaseClient {
           resolve(response.data);
         })
         .catch((error) => {
-          reject(
-            new BaseException(
-              error.response.status,
-              error.response.data.message,
-              error.response.data.timestamp
-            )
-          );
+          reject(new BaseException(error.response.status, error.response.data.message, error.response.data.timestamp));
         });
     });
   }

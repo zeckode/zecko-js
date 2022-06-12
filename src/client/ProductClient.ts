@@ -22,10 +22,7 @@ export class ProductClient extends BaseClient {
    * @returns {Promise<ProductsData>}
    * Paginated products list of maximum 20 products. To request further products, use `after` parameter.
    */
-  async getAllByCollectionId(
-    collectionId: string,
-    after?: string
-  ): Promise<ProductsData> {
+  async getAllByCollectionId(collectionId: string, after?: string): Promise<ProductsData> {
     const params = new Object({
       collectionId: collectionId,
       after: after,
@@ -54,11 +51,7 @@ export class ProductClient extends BaseClient {
    * Has a maximum of 10 images and 5 variants. To request further images and variants,
    * use `imagesAfter` and `variantsAfter` parameters respectively.
    */
-  async getById(
-    id: string,
-    imagesAfter?: string,
-    variantsAfter?: string
-  ): Promise<ProductData> {
+  async getById(id: string, imagesAfter?: string, variantsAfter?: string): Promise<ProductData> {
     const params = new Object({
       imagesAfter: imagesAfter,
       variantsAfter: variantsAfter,

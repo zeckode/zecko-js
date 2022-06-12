@@ -22,10 +22,7 @@ export class CartClient extends BaseClient {
    * @returns {Promise<CartData>}
    * Paginated cart list of maximum 250 cart items. To request further cart items, use `lineItemsAfter` parameter.
    */
-  async getByClientCustomerId(
-    cutomerId: string,
-    lineItemsAfter?: string
-  ): Promise<CartData> {
+  async getByClientCustomerId(cutomerId: string, lineItemsAfter?: string): Promise<CartData> {
     const params = new Object({
       customerId: cutomerId,
       lineItemsAfter: lineItemsAfter,
