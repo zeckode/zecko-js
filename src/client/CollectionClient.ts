@@ -16,9 +16,12 @@ export class CollectionClient extends BaseClient {
    * @returns {Promise<CollectionData>}
    */
   async getbyId(id: string): Promise<CollectionData> {
-    const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
+    const params = new Object({
+      id: id,
+    });
+    const url = `${APIConstants.API_BASE_URL}/collections`;
 
-    return this._get<CollectionData>(url, null, {
+    return this._get<CollectionData>(url, params, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -34,16 +37,12 @@ export class CollectionClient extends BaseClient {
    * Paginated collections list of maximum 250 collections. To request further collections, use `after` parameter.
    */
   async getAll(after?: string): Promise<CollectionsData> {
-    const queryParams = new URLSearchParams();
+    const params = new Object({
+      after: after,
+    });
+    const url = `${APIConstants.API_BASE_URL}/collections`;
 
-    if (after) {
-      queryParams.append('after', after);
-    }
-
-    const queryParamsString = queryParams.toString() ? `?${queryParams.toString()}` : '';
-    const url = `${APIConstants.API_BASE_URL}/collections${queryParamsString}`;
-
-    return this._get<CollectionsData>(url, null, {
+    return this._get<CollectionsData>(url, params, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }

@@ -22,19 +22,17 @@ export class ProductClient extends BaseClient {
    * @returns {Promise<ProductsData>}
    * Paginated products list of maximum 20 products. To request further products, use `after` parameter.
    */
-  async getAllByCollectionId(collectionId: string, after?: string): Promise<ProductsData> {
-    const queryParams = new URLSearchParams();
+  async getAllByCollectionId(
+    collectionId: string,
+    after?: string
+  ): Promise<ProductsData> {
+    const params = new Object({
+      collectionId: collectionId,
+      after: after,
+    });
+    const url = `${APIConstants.API_BASE_URL}/products`;
 
-    queryParams.append('collectionId', collectionId);
-
-    if (after) {
-      queryParams.append('after', after);
-    }
-
-    const searchParamsString = queryParams.toString() ? `?${queryParams.toString()}` : '';
-    const url = `${APIConstants.API_BASE_URL}/products${searchParamsString}`;
-
-    return this._get<ProductsData>(url, null, {
+    return this._get<ProductsData>(url, params, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -56,20 +54,18 @@ export class ProductClient extends BaseClient {
    * Has a maximum of 10 images and 5 variants. To request further images and variants,
    * use `imagesAfter` and `variantsAfter` parameters respectively.
    */
-  async getById(id: string, imagesAfter?: string, variantsAfter?: string): Promise<ProductData> {
-    const queryParams = new URLSearchParams();
-    if (imagesAfter) {
-      queryParams.append('imagesAfter', imagesAfter);
-    }
+  async getById(
+    id: string,
+    imagesAfter?: string,
+    variantsAfter?: string
+  ): Promise<ProductData> {
+    const params = new Object({
+      imagesAfter: imagesAfter,
+      variantsAfter: variantsAfter,
+    });
+    const url = `${APIConstants.API_BASE_URL}/products/${id}`;
 
-    if (variantsAfter) {
-      queryParams.append('variantsAfter', variantsAfter);
-    }
-
-    const searchParamsString = queryParams.toString() ? `?${queryParams.toString()}` : '';
-    const url = `${APIConstants.API_BASE_URL}/products/${id}${searchParamsString}`;
-
-    return this._get<ProductData>(url, null, {
+    return this._get<ProductData>(url, params, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }

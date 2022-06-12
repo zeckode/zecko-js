@@ -87,3 +87,16 @@ export type CartWrapper = {
 export type CartData = {
   readonly data: CartWrapper;
 };
+
+export type DraftOrderDeletedIdWrapper = {
+  readonly deletedId: string;
+  readonly userErrors: readonly UserErrors[];
+};
+
+export type DraftOrderDeletedIdWrapperWrapper = {
+  readonly draftOrderDelete: DraftOrderDeletedIdWrapper;
+};
+
+export type DeleteCart = {
+  readonly data: DraftOrderDeletedIdWrapperWrapper;
+};

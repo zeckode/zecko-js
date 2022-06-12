@@ -16,29 +16,53 @@ export class BaseClient {
   /**
    * @ignore
    */
-  _post<T>(url: string, params: any, headers: any) {
-    return this.#request<T>({ url, params, headers, method: 'POST' as Method });
+  _post<T>(url: string, params: any, data: any, headers: any) {
+    return this.#request<T>({
+      url,
+      params,
+      data,
+      headers,
+      method: 'POST' as Method,
+    });
   }
 
   /**
    * @ignore
    */
-  _put<T>(url: string, params: any, headers: any) {
-    return this.#request<T>({ url, params, headers, method: 'PUT' as Method });
+  _put<T>(url: string, params: any, data: any, headers: any) {
+    return this.#request<T>({
+      url,
+      params,
+      data,
+      headers,
+      method: 'PUT' as Method,
+    });
   }
 
   /**
    * @ignore
    */
-  _delete<T>(url: string, params: any, headers: any) {
-    return this.#request<T>({ url, params, headers, method: 'DELETE' as Method });
+  _delete<T>(url: string, params: any, data: any, headers: any) {
+    return this.#request<T>({
+      url,
+      params,
+      data,
+      headers,
+      method: 'DELETE' as Method,
+    });
   }
 
   /**
    * @ignore
    */
-  _patch<T>(url: string, params: any, headers: any) {
-    return this.#request<T>({ url, params, headers, method: 'PATCH' as Method });
+  _patch<T>(url: string, params: any, data: any, headers: any) {
+    return this.#request<T>({
+      url,
+      params,
+      data,
+      headers,
+      method: 'PATCH' as Method,
+    });
   }
 
   /**
@@ -51,7 +75,13 @@ export class BaseClient {
           resolve(response.data);
         })
         .catch((error) => {
-          reject(new BaseException(error.response.status, error.response.data.message, error.response.data.timestamp));
+          reject(
+            new BaseException(
+              error.response.status,
+              error.response.data.message,
+              error.response.data.timestamp
+            )
+          );
         });
     });
   }
