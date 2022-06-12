@@ -100,3 +100,9 @@ export type DraftOrderDeletedIdWrapperWrapper = {
 export type DeleteCart = {
   readonly data: DraftOrderDeletedIdWrapperWrapper;
 };
+
+export type cartActionRequest = {
+  readonly customerId: string;
+  readonly variantId: string;
+  readonly quantity: number;
+};

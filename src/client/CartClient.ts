@@ -37,11 +37,11 @@ export class CartClient extends BaseClient {
 
   /**
    * @param {JSON} cartActionRequest CartActionRequest
-   * @property {string} `customerId`
+   * @property `customerId`
    * ClientCustomer Id - string property of cartActionRequest
-   * @property {string} `variantId`
+   * @property `variantId`
    * Product Variant Id - string property of cartActionRequest
-   * @property {number} `quantity`
+   * @property `quantity`
    * Product Quantity - number property of cartActionRequest
    *
    * @returns {Promise<CartData>}
@@ -57,12 +57,12 @@ export class CartClient extends BaseClient {
   }
 
   /**
-   * @param {JSON} cartActionRequest CartActionRequest
-   * @property {string} `customerId`
+   * @typedef {JSON} cartActionRequest CartActionRequest
+   * @property `customerId`
    * ClientCustomer Id - string property of cartActionRequest
-   * @property {string} `variantId`
+   * @property `variantId`
    * Product Variant Id - string property of cartActionRequest
-   * @property {number} `quantity`
+   * @property `quantity`
    * Product Quantity - number property of cartActionRequest
    *
    * @returns {Promise<CartData>}
