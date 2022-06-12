@@ -1,5 +1,6 @@
 import { SDKParams } from '../types/SDKParams';
 
+import { CartClient } from './CartClient';
 import { CollectionClient } from './CollectionClient';
 import { ProductClient } from './ProductClient';
 
@@ -12,6 +13,8 @@ export class Zecko {
   readonly collectionClient: CollectionClient;
 
   readonly productClient: ProductClient;
+
+  readonly cartClient: CartClient;
 
   /**
    *
@@ -60,5 +63,6 @@ export class Zecko {
     this.accessToken = sdkParams.accessToken;
     this.collectionClient = new CollectionClient(this.accessToken);
     this.productClient = new ProductClient(this.accessToken);
+    this.cartClient = new CartClient(this.accessToken);
   }
 }
