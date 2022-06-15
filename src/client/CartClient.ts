@@ -14,6 +14,11 @@ export class CartClient extends BaseClient {
   /**
    * @param {string} cutomerId ClientCustomer Id
    *
+   * @param {string} lineItemsBefore
+   * If `data.cart.pageInfo.hasPreviousPage` is `true`, then request previous page by passing
+   * `data.cart.pageInfo.startCursor` as `lineItemsBefore` parameter. You can also pass `data.cart.edges[i].cursor`
+   * as `lineItemsBefore` parameter to get results before that cursor.
+   *
    * @param {string} lineItemsAfter
    * If `data.cart.pageInfo.hasNextPage` is `true`, then request next page by passing
    * `data.cart.pageInfo.endCursor` as `lineItemsAfter` parameter. You can also pass `data.cart.edges[i].cursor`
@@ -22,9 +27,10 @@ export class CartClient extends BaseClient {
    * @returns {Promise<CartData>}
    * Paginated cart list of maximum 250 cart items. To request further cart items, use `lineItemsAfter` parameter.
    */
-  async getByClientCustomerId(cutomerId: string, lineItemsAfter?: string): Promise<CartData> {
+  async getByClientCustomerId(cutomerId: string, lineItemsBefore?: string, lineItemsAfter?: string): Promise<CartData> {
     const params = new Object({
       customerId: cutomerId,
+      lineItemsBefore: lineItemsBefore,
       lineItemsAfter: lineItemsAfter,
     });
 
@@ -37,6 +43,7 @@ export class CartClient extends BaseClient {
 
   /**
    * @param {JSON} cartActionRequest CartActionRequest
+   *
    * @property `customerId`
    * ClientCustomer Id - string property of cartActionRequest
    * @property `variantId`
@@ -58,6 +65,7 @@ export class CartClient extends BaseClient {
 
   /**
    * @typedef {JSON} cartActionRequest CartActionRequest
+   *
    * @property `customerId`
    * ClientCustomer Id - string property of cartActionRequest
    * @property `variantId`
