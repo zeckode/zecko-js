@@ -13,6 +13,7 @@ export class CollectionClient extends BaseClient {
   /**
    *
    * @param {string} id Collection Id
+   *
    * @returns {Promise<CollectionData>}
    */
   async getbyId(id: string): Promise<CollectionData> {
@@ -28,6 +29,12 @@ export class CollectionClient extends BaseClient {
 
   /**
    *
+   *
+   * @param before
+   * If `data.collections.pageInfo.hasPreviousPage` is `true`, then request previous page by passing
+   * `data.collections.pageInfo.startCursor` as `before` parameter. You can also pass `data.collections.edges[i].cursor`
+   * as `before` parameter to get results before that cursor.
+   *
    * @param after
    * If `data.collections.pageInfo.hasNextPage` is `true`, then request next page by passing
    * `data.collections.pageInfo.endCursor` as `after` parameter. You can also pass `data.collections.edges[i].cursor`
@@ -36,8 +43,9 @@ export class CollectionClient extends BaseClient {
    * @returns {Promise<CollectionsData>}
    * Paginated collections list of maximum 250 collections. To request further collections, use `after` parameter.
    */
-  async getAll(after?: string): Promise<CollectionsData> {
+  async getAll(before?: string, after?: string): Promise<CollectionsData> {
     const params = new Object({
+      before: before,
       after: after,
     });
     const url = `${APIConstants.API_BASE_URL}/collections`;
