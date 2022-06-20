@@ -4,7 +4,7 @@ import { Product, Variant } from './Product';
 
 export enum DiscountType {
   FIXED_AMOUNT,
-  FIXED_PERCENTAGE,
+  PERCENTAGE,
 }
 
 export type Discount = {
@@ -29,7 +29,7 @@ export type TaxLine = {
 export type CartLineItem = {
   readonly appliedDiscount: Discount;
   readonly discountedTotal: string;
-  readonly discountedUnitPirce: string;
+  readonly discountedUnitPrice: string;
   readonly id: string;
   readonly image: Image;
   readonly name: string;
@@ -39,7 +39,7 @@ export type CartLineItem = {
   readonly quantity: number;
   readonly sku: string;
   readonly taxLines: readonly TaxLine[];
-  readonly texable: boolean;
+  readonly taxable: boolean;
   readonly title: string;
   readonly totalDiscount: string;
   readonly variant: Variant;
