@@ -83,7 +83,7 @@ export class Zecko {
    * });
    * ```
    *
-   * <b>Delete Cart</b>
+   * <b>Delete Cart by Customer ID</b>
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
