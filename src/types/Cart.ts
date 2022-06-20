@@ -101,7 +101,7 @@ export type DeleteCart = {
   readonly data: DraftOrderDeletedIdWrapperWrapper;
 };
 
-export type cartActionRequest = {
+export type CartActionRequest = {
   readonly customerId: string;
   readonly variantId: string;
   readonly quantity: number;
