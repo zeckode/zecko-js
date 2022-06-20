@@ -34,7 +34,7 @@ export class Zecko {
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
-   * return zecko.collectionClient.get('YOUR_COLLECTION_ID');
+   * return zecko.collectionClient.getById('YOUR_COLLECTION_ID');
    * ```
    * <h3>Products</h3>
    * <b>Get all products</b>
@@ -42,15 +42,54 @@ export class Zecko {
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
-   * return zecko.productClient.getAll();
+   * return zecko.productClient.getAllByCollectionId('YOUR_COLLECTION_ID');
    * ```
    *
    * <b>Get product by ID</b>
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
-   * return zecko.productClient.get('YOUR_PRODUCT_ID');
+   * return zecko.productClient.getById('YOUR_PRODUCT_ID');
    * ```
+   *
+   * <h3>Cart</h3>
+   * <b>Get Cart by Customer ID</b>
+   * <br><br>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.cartClient.getByCustomerId('YOUR_CUSTOMER_ID');
+   * ```
+   *
+   * <b>Add to Cart</b>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.cartClient.addToCart({
+   * customerId : 'YOUR_CUSTOMER_ID',
+   * variantId : 'YOUR_PRODUCT_VARIANT_ID',
+   * quantity: 'YOUR_PRODUCT_VARIANT_QUANTITY'
+   * });
+   * ```
+   *
+   * <b>Delete from Cart</b>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.cartClient.deleteFromCart({
+   *  customerId : 'YOUR_CUSTOMER_ID',
+   *  variantId : 'YOUR_PRODUCT_VARIANT_ID',
+   *  quantity: 'YOUR_PRODUCT_VARIANT_QUANTITY'
+   * });
+   * ```
+   *
+   * <b>Delete Cart</b>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.cartClient.deleteByCustomerId('YOUR_CUSTOMER_ID');
+   * ```
+   *
    *
    * - All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js <br>
    * - For detailed documentation, visit respective class docs below.
