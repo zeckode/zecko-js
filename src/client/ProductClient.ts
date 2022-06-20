@@ -28,11 +28,11 @@ export class ProductClient extends BaseClient {
    * Paginated products list of maximum 20 products. To request further products, use `after` parameter.
    */
   async getAllByCollectionId(collectionId: string, before?: string, after?: string): Promise<ProductsData> {
-    const params = new Object({
+    const params = {
       collectionId: collectionId,
       before: before,
       after: after,
-    });
+    };
     const url = `${APIConstants.API_BASE_URL}/products`;
 
     return this._get<ProductsData>(url, params, {
@@ -74,12 +74,12 @@ export class ProductClient extends BaseClient {
     variantsBefore?: string,
     variantsAfter?: string
   ): Promise<ProductData> {
-    const params = new Object({
+    const params = {
       imagesBefore: imagesBefore,
       imagesAfter: imagesAfter,
       variantsBefore: variantsBefore,
       variantsAfter: variantsAfter,
-    });
+    };
     const url = `${APIConstants.API_BASE_URL}/products/${id}`;
 
     return this._get<ProductData>(url, params, {
