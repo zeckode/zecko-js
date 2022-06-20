@@ -16,10 +16,10 @@ export class CollectionClient extends BaseClient {
    *
    * @returns {Promise<CollectionData>}
    */
-  async getbyId(id: string): Promise<CollectionData> {
-    const params = new Object({
+  async getById(id: string): Promise<CollectionData> {
+    const params = {
       id: id,
-    });
+    };
     const url = `${APIConstants.API_BASE_URL}/collections`;
 
     return this._get<CollectionData>(url, params, {
@@ -44,10 +44,10 @@ export class CollectionClient extends BaseClient {
    * Paginated collections list of maximum 250 collections. To request further collections, use `after` parameter.
    */
   async getAll(before?: string, after?: string): Promise<CollectionsData> {
-    const params = new Object({
+    const params = {
       before: before,
       after: after,
-    });
+    };
     const url = `${APIConstants.API_BASE_URL}/collections`;
 
     return this._get<CollectionsData>(url, params, {
