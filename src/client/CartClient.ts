@@ -84,7 +84,7 @@ export class CartClient extends BaseClient {
    *
    * @return {Promise<DeleteCart>}
    */
-  async delete(customerId: string): Promise<DeleteCart> {
+  async deleteByCustomerId(customerId: string): Promise<DeleteCart> {
     const params = new Object({
       customerId: customerId,
     });
