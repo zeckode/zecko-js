@@ -60,6 +60,22 @@
 <p><b><a href="https://zecko.co/zecko-js/classes/ProductClient.html#getById">Get product by ID</a></b></p>
 <pre><code class="language-js"><span class="hl-7">return</span><span class="hl-0"> </span><span class="hl-4">zecko</span><span class="hl-0">.</span><span class="hl-4">productClient</span><span class="hl-0">.</span><span class="hl-3">get</span><span class="hl-0">(</span><span class="hl-5">&#39;YOUR_PRODUCT_ID&#39;</span><span class="hl-0">);</span>
 </code></pre>
+
+<a href="#cart" id="cart" style="color: inherit; text-decoration: none;">
+  <h3><a href="https://zecko.co/zecko-js/classes/CartClient.html">Cart</a></h3>
+</a>
+<p><b><a href="https://zecko.co/zecko-js/classes/CartClient.html#getByCustomerId">Get Cart by Customer ID</a></b></p>
+<pre><code class="language-js"><span class="hl-7">return</span><span class="hl-0"> </span><span class="hl-4">zecko</span><span class="hl-0">.</span><span class="hl-4">cartClient</span><span class="hl-0">.</span><span class="hl-3">getByCustomerId</span><span class="hl-0">(</span><span class="hl-5">&#39;YOUR_CUSTOMER_ID&#39;</span><span class="hl-0">);</span>
+</code></pre>
+<p><b><a href="https://zecko.co/zecko-js/classes/CartClient.html#addToCart">Add to Cart</a></b></p>
+<pre><code class="language-js"><span class="hl-7">return</span><span class="hl-0"> </span><span class="hl-4">zecko</span><span class="hl-0">.</span><span class="hl-4">cartClient</span><span class="hl-0">.</span><span class="hl-3">addToCart</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-4">customerId:</span><span class="hl-0"> </span><span class="hl-5">&#39;YOUR_CUSTOMER_ID&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">variantId:</span><span class="hl-0"> </span><span class="hl-5">&#39;YOUR_PRODUCT_VARIANT_ID&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">quantity:</span><span class="hl-0"> </span><span class="hl-5">&#39;YOUR_PRODUCT_VARIANT_QUANTITY&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
+</code></pre>
+<p><b><a href="https://zecko.co/zecko-js/classes/CartClient.html#deleteFromCart">Delete from Cart</a></b></p>
+<pre><code class="language-js"><span class="hl-7">return</span><span class="hl-0"> </span><span class="hl-4">zecko</span><span class="hl-0">.</span><span class="hl-4">cartClient</span><span class="hl-0">.</span><span class="hl-3">deleteFromCart</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-4">customerId:</span><span class="hl-0"> </span><span class="hl-5">&#39;YOUR_CUSTOMER_ID&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">variantId:</span><span class="hl-0"> </span><span class="hl-5">&#39;YOUR_PRODUCT_VARIANT_ID&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">quantity:</span><span class="hl-0"> </span><span class="hl-5">&#39;YOUR_PRODUCT_VARIANT_QUANTITY&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
+</code></pre>
+<p><b><a href="https://zecko.co/zecko-js/classes/CartClient.html#deleteByCustomerId">Delete Cart by Customer ID</a></b></p>
+<pre><code class="language-js"><span class="hl-7">return</span><span class="hl-0"> </span><span class="hl-4">zecko</span><span class="hl-0">.</span><span class="hl-4">cartClient</span><span class="hl-0">.</span><span class="hl-3">deleteByCustomerId</span><span class="hl-0">(</span><span class="hl-5">&#39;YOUR_CUSTOMER_ID&#39;</span><span class="hl-0">);</span>
+</code></pre>
 <blockquote>
 <ul>
 <li>All examples available at <a href="https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js">https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js</a>.</li>
