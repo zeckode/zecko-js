@@ -3,7 +3,6 @@ import { PageInfo } from './PageInfo';
 
 export type Product = {
   readonly description: string;
-  readonly descriptionHtml: string;
   readonly featuredImage: Image;
   readonly handle: string;
   readonly hasOnlyDefaultVariant: string;
