@@ -66,8 +66,8 @@ export class Zecko {
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
    * return zecko.cartClient.addToCart({
-   * customerId : 'YOUR_CUSTOMER_ID',
-   * variantId : 'YOUR_PRODUCT_VARIANT_ID',
+   * customerId: 'YOUR_CUSTOMER_ID',
+   * variantId: 'YOUR_PRODUCT_VARIANT_ID',
    * quantity: 'YOUR_PRODUCT_VARIANT_QUANTITY'
    * });
    * ```
@@ -77,8 +77,8 @@ export class Zecko {
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
    * return zecko.cartClient.deleteFromCart({
-   *  customerId : 'YOUR_CUSTOMER_ID',
-   *  variantId : 'YOUR_PRODUCT_VARIANT_ID',
+   *  customerId: 'YOUR_CUSTOMER_ID',
+   *  variantId: 'YOUR_PRODUCT_VARIANT_ID',
    *  quantity: 'YOUR_PRODUCT_VARIANT_QUANTITY'
    * });
    * ```

@@ -66,5 +66,39 @@ return zecko.productClient.getAllByCollectionId('YOUR_COLLECTION_ID');
 return zecko.productClient.get('YOUR_PRODUCT_ID');
 ```
 
+### [Cart](https://zecko.co/zecko-js/classes/CartClient.html)
+
+<b>[Get Cart by Customer ID](https://zecko.co/zecko-js/classes/CartClient.html#getByCustomerId)</b>
+
+```js
+return zecko.cartClient.getByCustomerId('YOUR_CUSTOMER_ID');
+```
+
+<b>[Add to Cart](https://zecko.co/zecko-js/classes/CartClient.html#addToCart)</b>
+
+```js
+return zecko.cartClient.addToCart({
+  customerId: 'YOUR_CUSTOMER_ID',
+  variantId: 'YOUR_PRODUCT_VARIANT_ID',
+  quantity: 'YOUR_PRODUCT_VARIANT_QUANTITY',
+});
+```
+
+<b>[Delete from Cart](https://zecko.co/zecko-js/classes/CartClient.html#deleteFromCart)</b>
+
+```js
+return zecko.cartClient.deleteFromCart({
+  customerId: 'YOUR_CUSTOMER_ID',
+  variantId: 'YOUR_PRODUCT_VARIANT_ID',
+  quantity: 'YOUR_PRODUCT_VARIANT_QUANTITY',
+});
+```
+
+<b>[Delete Cart by Customer ID](https://zecko.co/zecko-js/classes/CartClient.html#deleteByCustomerId)</b>
+
+```js
+return zecko.cartClient.deleteByCustomerId('YOUR_CUSTOMER_ID');
+```
+
 >- All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js.
 >- For detailed documentation, visit respective class [docs](https://zecko.co/zecko-js/modules.html).
