@@ -1,6 +1,15 @@
-import { Image } from './Image';
-import { Money } from './Money';
+import { ProductStatus } from './Enums';
+import { Image, ImageEdges } from './Image';
 import { PageInfo } from './PageInfo';
+import { PriceRange } from './PriceRange';
+import { VariantEdges } from './Variant';
+
+export type ProductOption = {
+  readonly id: string;
+  readonly name: string;
+  readonly position: number;
+  readonly values: readonly string[];
+};
 
 export type Product = {
   readonly description: string;
@@ -13,7 +22,7 @@ export type Product = {
   readonly options: readonly ProductOption[];
   readonly priceRangeV2: PriceRange;
   readonly productType: string;
-  readonly status: string;
+  readonly status: ProductStatus;
   readonly tags: readonly string[];
   readonly title: string;
   readonly totalInventory: number;
@@ -22,60 +31,28 @@ export type Product = {
   readonly vendor: string;
 };
 
-export type ImageEdges = {
-  readonly edges: readonly Image[];
-  readonly pageInfo: PageInfo;
-};
-
-export type ProductOption = {
-  readonly id: string;
-  readonly name: string;
-  readonly position: number;
-  readonly values: readonly string[];
-};
-
-export type PriceRange = {
-  readonly maxVariantPrice: Money;
-  readonly minVariantPrice: Money;
-};
-
-export type VariantEdges = {
-  readonly edges: readonly VariantEdge[];
-  readonly pageInfo: PageInfo;
-};
-
-export type VariantEdge = {
-  readonly node: readonly Variant[];
-  readonly sku: string;
-  readonly taxCode: string;
-  readonly taxable: string;
-  readonly title: string;
-};
-
-export type Variant = {
-  readonly availableForSale: boolean;
-  readonly compareAtPrice: number;
-  readonly displayName: string;
-  readonly id: string;
-  readonly inventoryQuantity: number;
-  readonly position: number;
-  readonly price: string;
-  readonly selectedOptions: ProductOption;
-};
-
-export type ProductsWrapper = {
-  readonly edges: readonly Product[];
-  readonly pageInfo: PageInfo;
-};
-
-export type ProductsData = {
-  readonly data: ProductsWrapper;
-};
-
 export type ProductWrapper = {
   readonly product: Product;
 };
 
 export type ProductData = {
   readonly data: ProductWrapper;
+};
+
+export type ProductEdge = {
+  readonly cursor: string;
+  readonly node: Product;
+}
+
+export type ProductEdges = {
+  readonly edges: ProductEdge;
+  readonly pageInfo: PageInfo;
+}
+
+export type ProductEdgesWrapper = {
+  readonly products: ProductEdges;
+}
+
+export type ProductsData = {
+  readonly data: ProductEdgesWrapper;
 };

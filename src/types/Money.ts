@@ -1,4 +1,4 @@
-import { CurrencyCode } from './Cart';
+import { CurrencyCode } from "./Enums";
 
 export type Money = {
   readonly amount: string;
