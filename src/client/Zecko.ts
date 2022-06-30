@@ -99,10 +99,14 @@ export class Zecko {
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
-   * return zecko.orderClient.findById(id);
+   * return zecko.orderClient.getById('YOUR_ORDER_ID');
    * ```
    *
-   * <b>Delete Cart by Customer ID</b>
+   * <b>Get All Order by Customer ID</b>
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.orderClient.getAllByCustomerId('YOUR_CUSTOMER_ID');
+   * ```
    *
    * - All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js <br>
    * - For detailed documentation, visit respective class docs below.
