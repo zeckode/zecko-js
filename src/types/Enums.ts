@@ -1,7 +1,7 @@
 export enum DraftOrderStatus {
-  COMPLETED, 
-  INVOICE_SENT, 
-  OPEN
+  COMPLETED,
+  INVOICE_SENT,
+  OPEN,
 }
 
 export enum InventoryUnitStatus {
@@ -20,13 +20,13 @@ export enum InventoryUnitStatus {
   REVERSE_IN_TRANSIT,
   RETURN_RECEIVED,
   EXCHANGE_REQUESTED,
-  EXCHANGE_APPROVED
+  EXCHANGE_APPROVED,
 }
 
 export enum ProductStatus {
   ACTIVE,
   ARCHIVED,
-  DRAFT
+  DRAFT,
 }
 
 export enum DiscountType {

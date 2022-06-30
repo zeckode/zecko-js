@@ -1,4 +1,4 @@
-import { PageInfo } from "./PageInfo";
+import { PageInfo } from './PageInfo';
 
 export type Image = {
   readonly altText: string;
@@ -11,7 +11,7 @@ export type Image = {
 export type ImageEdge = {
   readonly cursor: string;
   readonly node: Image;
-}
+};
 
 export type ImageEdges = {
   readonly edges: readonly ImageEdge[];

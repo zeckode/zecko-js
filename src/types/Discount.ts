@@ -1,4 +1,4 @@
-import { DiscountType } from "./Enums";
+import { DiscountType } from './Enums';
 
 export type Discount = {
   readonly amount: number;

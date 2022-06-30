@@ -1,4 +1,4 @@
-import { Money } from "./Money";
+import { Money } from './Money';
 
 export type PriceRange = {
   readonly maxVariantPrice: Money;

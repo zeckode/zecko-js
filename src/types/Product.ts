@@ -42,16 +42,16 @@ export type ProductData = {
 export type ProductEdge = {
   readonly cursor: string;
   readonly node: Product;
-}
+};
 
 export type ProductEdges = {
   readonly edges: ProductEdge;
   readonly pageInfo: PageInfo;
-}
+};
 
 export type ProductEdgesWrapper = {
   readonly products: ProductEdges;
-}
+};
 
 export type ProductsData = {
   readonly data: ProductEdgesWrapper;

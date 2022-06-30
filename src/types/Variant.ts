@@ -1,7 +1,7 @@
-import { Image } from "./Image";
-import { PageInfo } from "./PageInfo";
-import { Product } from "./Product";
-import { SelectedOption } from "./SelectedOption";
+import { Image } from './Image';
+import { PageInfo } from './PageInfo';
+import { Product } from './Product';
+import { SelectedOption } from './SelectedOption';
 
 export type Variant = {
   readonly availableForSale: boolean;
@@ -23,7 +23,7 @@ export type Variant = {
 export type VariantEdge = {
   readonly cursor: string;
   readonly node: Variant;
-}
+};
 
 export type VariantEdges = {
   readonly edges: readonly VariantEdge[];

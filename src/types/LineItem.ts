@@ -1,10 +1,10 @@
-import { Discount } from "./Discount";
-import { Image } from "./Image";
-import { InventoryUnit } from "./InventoryUnit";
-import { PageInfo } from "./PageInfo";
-import { Product } from "./Product";
-import { TaxLine } from "./TaxLine";
-import { Variant } from "./Variant";
+import { Discount } from './Discount';
+import { Image } from './Image';
+import { InventoryUnit } from './InventoryUnit';
+import { PageInfo } from './PageInfo';
+import { Product } from './Product';
+import { TaxLine } from './TaxLine';
+import { Variant } from './Variant';
 
 export type LineItem = {
   readonly appliedDiscount: Discount;
@@ -31,9 +31,9 @@ export type LineItem = {
 export type LineItemEdge = {
   readonly cursor: string;
   readonly node: LineItem;
-}
+};
 
 export type LineItemEdges = {
   readonly edges: readonly LineItemEdge[];
   readonly pageInfo: PageInfo;
-}
+};
