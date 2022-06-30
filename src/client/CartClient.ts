@@ -1,5 +1,6 @@
 import { APIConstants } from '../constants/APIConstants';
-import { CartActionRequest, CartData, DeleteCart } from '../types/Cart';
+import { CartActionRequest, CartCompleteRequest, CartData, DeleteCart } from '../types/Cart';
+import { OrderData } from '../types/Order';
 
 import { BaseClient } from './BaseClient';
 
@@ -74,6 +75,23 @@ export class CartClient extends BaseClient {
     const url = `${APIConstants.API_BASE_URL}/carts/delete`;
 
     return this._patch<CartData>(url, null, cartActionRequest, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+      'Content-Type': 'application/json',
+    });
+  }
+
+  /**
+   *
+   * @param id Cart ID
+   * @param cartCompleteRequest Object that contains Payment Method
+   * @returns {Promise<OrderData>}
+   * Order Object containing maximum 20 line items in order and each line items containing maximum 10 images in image
+   */
+
+  async completeOrderById(id: string, cartCompleteRequest: CartCompleteRequest): Promise<OrderData> {
+    const url = `${APIConstants.API_BASE_URL}/carts/complete/${id}`;
+
+    return this._post<OrderData>(url, null, cartCompleteRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
       'Content-Type': 'application/json',
     });

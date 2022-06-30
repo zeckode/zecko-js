@@ -1,3 +1,4 @@
+import { PaymentMethod } from './Enums';
 import { Image } from './Image';
 import { PageInfo } from './PageInfo';
 import { Product, Variant } from './Product';
@@ -105,4 +106,8 @@ export type CartActionRequest = {
   readonly customerId: string;
   readonly variantId: string;
   readonly quantity: number;
+};
+
+export type CartCompleteRequest = {
+  readonly paymentMethod: PaymentMethod;
 };

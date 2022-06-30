@@ -1,4 +1,5 @@
 import { Image } from './Image';
+import { Money } from './Money';
 import { PageInfo } from './PageInfo';
 
 export type Product = {
@@ -36,11 +37,6 @@ export type ProductOption = {
 export type PriceRange = {
   readonly maxVariantPrice: Money;
   readonly minVariantPrice: Money;
-};
-
-export type Money = {
-  readonly amount: number;
-  readonly currencyCode: string;
 };
 
 export type VariantEdges = {

@@ -2,6 +2,7 @@ import { SDKParams } from '../types/SDKParams';
 
 import { CartClient } from './CartClient';
 import { CollectionClient } from './CollectionClient';
+import { OrderClient } from './OrderClient';
 import { ProductClient } from './ProductClient';
 
 export class Zecko {
@@ -15,6 +16,8 @@ export class Zecko {
   readonly productClient: ProductClient;
 
   readonly cartClient: CartClient;
+
+  readonly orderClient: OrderClient;
 
   /**
    *
@@ -90,6 +93,16 @@ export class Zecko {
    * return zecko.cartClient.deleteByCustomerId('YOUR_CUSTOMER_ID');
    * ```
    *
+   * <h3>Order</h3>
+   * <b>Get Order by Order ID</b>
+   * <br><br>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.orderClient.findById(id);
+   * ```
+   *
+   * <b>Delete Cart by Customer ID</b>
    *
    * - All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js <br>
    * - For detailed documentation, visit respective class docs below.
@@ -103,5 +116,6 @@ export class Zecko {
     this.collectionClient = new CollectionClient(this.accessToken);
     this.productClient = new ProductClient(this.accessToken);
     this.cartClient = new CartClient(this.accessToken);
+    this.orderClient = new OrderClient(this.accessToken);
   }
 }
