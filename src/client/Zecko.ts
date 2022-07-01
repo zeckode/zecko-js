@@ -107,7 +107,7 @@ export class Zecko {
    * ```
    *
    * <h3>Order</h3>
-   * <b>Get Order by Order ID</b>
+   * <b>Get Order by ID</b>
    * <br><br>
    *
    * ```
