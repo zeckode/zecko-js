@@ -119,13 +119,13 @@ return zecko.cartClient.deleteCartByCustomerId('YOUR_CUSTOMER_ID');
 <b>[Get Order by ID](https://zecko.co/zecko-js/classes/OrderClient.html#getById)</b>
 
 ```js
-return zecko.cartClient.getById('YOUR_ORDER_ID');
+return zecko.orderClient.getById('YOUR_ORDER_ID');
 ```
 
 <b>[Get All Orders by Customer ID](https://zecko.co/zecko-js/classes/OrderClient.html#getAllByCustomerId)</b>
 
 ```js
-return zecko.cartClient.deleteCartByCustomerId('YOUR_CUSTOMER_ID');
+return zecko.orderClient.getAllByCustomerId('YOUR_CUSTOMER_ID');
 ```
 
 > - All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js.
