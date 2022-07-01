@@ -5,11 +5,13 @@ Official TypeScript and JavaScript SDK for [Zecko API](https://www.postman.com/z
 ## Installation
 
 ### Yarn
+
 ```bash
 yarn add zecko
 ```
 
 ### NPM
+
 ```bash
 npm install zecko
 ```
@@ -34,26 +36,29 @@ The resources can be accessed via the instance. All the methods invocations foll
 {zeckoInstance}.{resourceName}.{methodName}([params])
 
 // example
-zecko.collectionClient.get('YOUR_COLLECTION_ID');
+zecko.collectionClient.getById('YOUR_COLLECTION_ID');
 ```
 
 Every resource method returns a promise. There is no callback support.
 
 ## Usage examples
+
 ### [Collections](https://zecko.co/zecko-js/classes/CollectionClient.html)
 
-<b>[Get all collections](https://zecko.co/zecko-js/classes/CollectionClient.html#getAll)</b>
+<b>[Get All Collections](https://zecko.co/zecko-js/classes/CollectionClient.html#getAll)</b>
+
 ```js
 return zecko.collectionClient.getAll();
 ```
 
-<b>[Get collection by ID](https://zecko.co/zecko-js/classes/CollectionClient.html#getbyId)</b>
+<b>[Get Collection by ID](https://zecko.co/zecko-js/classes/CollectionClient.html#getById)</b>
 
 ```js
-return zecko.collectionClient.get('YOUR_COLLECTION_ID');
+return zecko.collectionClient.getById('YOUR_COLLECTION_ID');
 ```
 
 ### [Products](https://zecko.co/zecko-js/classes/ProductClient.html)
+
 <b>[Get products by collection ID](https://zecko.co/zecko-js/classes/ProductClient.html#getAllByCollectionId)</b>
 
 ```js
@@ -63,7 +68,7 @@ return zecko.productClient.getAllByCollectionId('YOUR_COLLECTION_ID');
 <b>[Get product by ID](https://zecko.co/zecko-js/classes/ProductClient.html#getById)</b>
 
 ```js
-return zecko.productClient.get('YOUR_PRODUCT_ID');
+return zecko.productClient.getById('YOUR_PRODUCT_ID');
 ```
 
 ### [Cart](https://zecko.co/zecko-js/classes/CartClient.html)
@@ -84,6 +89,15 @@ return zecko.cartClient.addToCart({
 });
 ```
 
+<b>[Complete Cart by ID](https://zecko.co/zecko-js/classes/CartClient.html#completeCartById)</b>
+
+```js
+return zecko.cartClient.completeCartById('YOUR_CART_ID', {
+  // `YOUR_PAYMENT_METHOD` can be one of `COD or PREPAID`
+  paymentMethod: 'YOUR_PAYMENT_METHOD',
+});
+```
+
 <b>[Delete from Cart](https://zecko.co/zecko-js/classes/CartClient.html#deleteFromCart)</b>
 
 ```js
@@ -94,11 +108,25 @@ return zecko.cartClient.deleteFromCart({
 });
 ```
 
-<b>[Delete Cart by Customer ID](https://zecko.co/zecko-js/classes/CartClient.html#deleteByCustomerId)</b>
+<b>[Delete Cart by Customer ID](https://zecko.co/zecko-js/classes/CartClient.html#deleteCartByCustomerId)</b>
 
 ```js
-return zecko.cartClient.deleteByCustomerId('YOUR_CUSTOMER_ID');
+return zecko.cartClient.deleteCartByCustomerId('YOUR_CUSTOMER_ID');
 ```
 
->- All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js.
->- For detailed documentation, visit respective class [docs](https://zecko.co/zecko-js/modules.html).
+### [Order](https://zecko.co/zecko-js/classes/OrderClient.html)
+
+<b>[Get Order by ID](https://zecko.co/zecko-js/classes/OrderClient.html#getById)</b>
+
+```js
+return zecko.cartClient.getById('YOUR_ORDER_ID');
+```
+
+<b>[Get All Orders by Customer ID](https://zecko.co/zecko-js/classes/OrderClient.html#getAllByCustomerId)</b>
+
+```js
+return zecko.cartClient.deleteCartByCustomerId('YOUR_CUSTOMER_ID');
+```
+
+> - All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js.
+> - For detailed documentation, visit respective class [docs](https://zecko.co/zecko-js/modules.html).
