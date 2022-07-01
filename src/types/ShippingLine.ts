@@ -1,4 +1,4 @@
-import { TaxLine } from './Cart';
+import { TaxLine } from './TaxLine';
 
 export type ShippingLine = {
   readonly carrierIdentifier: string;

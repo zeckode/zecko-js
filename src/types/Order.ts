@@ -1,8 +1,10 @@
 import { Address } from './Address';
-import { CartLineItemEdges, TaxLine, UserErrors } from './Cart';
+import { LineItemEdges } from './LineItem';
 import { MoneyBag, Refund } from './Money';
 import { PageInfo } from './PageInfo';
 import { ShippingLine } from './ShippingLine';
+import { TaxLine } from './TaxLine';
+import { UserError } from './UserError';
 
 export type Order = {
   readonly cancelReason: string;
@@ -15,7 +17,7 @@ export type Order = {
   readonly currentCartDiscountAmountSet: MoneyBag;
   readonly currentSubtotalLineItemsQuantity: number;
   readonly currentSubtotalPriceSet: MoneyBag;
-  readonly currentTaxLines: TaxLine;
+  readonly currentTaxLines: readonly TaxLine[];
   readonly currentTotalDiscountsSet: MoneyBag;
   readonly currentTotalPriceSet: MoneyBag;
   readonly currentTotalTaxSet: MoneyBag;
@@ -23,11 +25,11 @@ export type Order = {
   readonly email: string;
   readonly fullyPaid: boolean;
   readonly id: string;
-  readonly lineItems: CartLineItemEdges;
+  readonly lineItems: LineItemEdges;
   readonly phone: string;
   readonly processedAt: Date;
   readonly refundable: boolean;
-  readonly refunds: Refund;
+  readonly refunds: readonly Refund[];
   readonly shippingAddress: Address;
   readonly shippingLine: ShippingLine;
   readonly subtotalLineItemsQuantity: number;
@@ -50,7 +52,7 @@ export type Order = {
 
 export type OrderWrapper = {
   readonly order: Order;
-  readonly userErrors: UserErrors;
+  readonly userErrors: readonly UserError[];
 };
 
 export type OrderData = {

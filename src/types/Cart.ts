@@ -1,88 +1,40 @@
-import { PaymentMethod } from './Enums';
-import { Image } from './Image';
-import { PageInfo } from './PageInfo';
-import { Product, Variant } from './Product';
-
-export enum DiscountType {
-  FIXED_AMOUNT,
-  PERCENTAGE,
-}
-
-export type Discount = {
-  readonly amount: number;
-  readonly amountV2: number;
-  readonly description: string;
-  readonly title: string;
-  readonly value: number;
-  readonly valueType: DiscountType;
-};
-
-export enum CurrencyCode {
-  INR,
-}
-
-export type TaxLine = {
-  readonly rate: number;
-  readonly ratePercentage: number;
-  readonly title: string;
-};
-
-export type CartLineItem = {
-  readonly appliedDiscount: Discount;
-  readonly discountedTotal: string;
-  readonly discountedUnitPrice: string;
-  readonly id: string;
-  readonly image: Image;
-  readonly name: string;
-  readonly originalTotal: string;
-  readonly originalUnitPrice: string;
-  readonly product: Product;
-  readonly quantity: number;
-  readonly sku: string;
-  readonly taxLines: readonly TaxLine[];
-  readonly taxable: boolean;
-  readonly title: string;
-  readonly totalDiscount: string;
-  readonly variant: Variant;
-  readonly variantTitle: string;
-  readonly vendor: string;
-};
-
-export type CartLineItemEdge = {
-  readonly cursor: string;
-  readonly node: CartLineItem;
-};
-
-export type CartLineItemEdges = {
-  readonly edges: readonly CartLineItemEdge[];
-  readonly PageInfo: PageInfo;
-};
+import { Address } from './Address';
+import { Customer } from './Customer';
+import { Discount } from './Discount';
+import { CurrencyCode, DraftOrderStatus, PaymentMethod } from './Enums';
+import { LineItemEdges } from './LineItem';
+import { Order } from './Order';
+import { ShippingLine } from './ShippingLine';
+import { TaxLine } from './TaxLine';
+import { UserError } from './UserError';
 
 export type Cart = {
   readonly appliedDiscount: Discount;
   readonly completedAt: Date;
   readonly createdAt: Date;
   readonly currencyCode: CurrencyCode;
+  readonly customer: Customer;
   readonly email: string;
   readonly id: string;
+  readonly lineItems: LineItemEdges;
+  readonly order: Order;
+  readonly shippingAddress: Address;
+  readonly shippingLine: ShippingLine;
+  readonly status: DraftOrderStatus;
   readonly subtotalPrice: string;
+  readonly tags: readonly string[];
+  readonly taxExempt: boolean;
   readonly taxLines: readonly TaxLine[];
   readonly taxesIncluded: boolean;
   readonly totalPrice: string;
   readonly totalShippingPrice: string;
   readonly totalTax: string;
   readonly updatedAt: Date;
-  readonly lineItems: CartLineItemEdges;
-};
-
-export type UserErrors = {
-  readonly message: string;
-  readonly field: readonly string[];
 };
 
 export type CartWrapper = {
   readonly cart: Cart;
-  readonly userErrors: readonly UserErrors[];
+  readonly userErrors: readonly UserError[];
 };
 
 export type CartData = {
@@ -91,7 +43,7 @@ export type CartData = {
 
 export type DraftOrderDeletedIdWrapper = {
   readonly deletedId: string;
-  readonly userErrors: readonly UserErrors[];
+  readonly userErrors: readonly UserError[];
 };
 
 export type DraftOrderDeletedIdWrapperWrapper = {
