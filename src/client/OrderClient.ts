@@ -26,7 +26,7 @@ export class OrderClient extends BaseClient {
    * as `lineItemsAfter` parameter to get results after that cursor.
    *
    * @returns {Promise<OrderData>}
-   * Order object containing maximum 20 line items in order.
+   * Order object containing maximum `20` line items in order. To request further line items, use 'lineItemsAfter' parameter
    */
 
   async getById(id: string, lineItemsBefore?: string, lineItemsAfter?: string): Promise<OrderData> {
@@ -56,7 +56,7 @@ export class OrderClient extends BaseClient {
    * as `after` parameter to get results after that cursor.
    *
    * @returns {Promise<OrdersData>}
-   * Paginated orders list of maximum 10 orders and each order containing maximum 10 line items. To request further orders, use 'after' parameter
+   * Paginated orders list of maximum `10` orders and each order containing maximum `10` line items. To request further orders, use 'after' parameter
    */
 
   async getAllByCustomerId(customerId: string, before?: string, after?: string): Promise<OrdersData> {

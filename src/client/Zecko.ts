@@ -86,11 +86,24 @@ export class Zecko {
    * });
    * ```
    *
+   * <b>Complete Cart by ID</b>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.cartClient.completeCartById(
+   *  'YOUR_CART_ID',
+   *  {
+   *    // `YOUR_PAYMENT_METHOD` can be one of `COD` or `PREPAID`
+   *    paymentMethod: 'YOUR_PAYMENT_METHOD',
+   *  }
+   * );
+   * ```
+   *
    * <b>Delete Cart by Customer ID</b>
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
-   * return zecko.cartClient.deleteByCustomerId('YOUR_CUSTOMER_ID');
+   * return zecko.cartClient.deleteCartByCustomerId('YOUR_CUSTOMER_ID');
    * ```
    *
    * <h3>Order</h3>
@@ -102,7 +115,8 @@ export class Zecko {
    * return zecko.orderClient.getById('YOUR_ORDER_ID');
    * ```
    *
-   * <b>Get All Order by Customer ID</b>
+   * <b>Get All Orders by Customer ID</b>
+   *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
    * return zecko.orderClient.getAllByCustomerId('YOUR_CUSTOMER_ID');
