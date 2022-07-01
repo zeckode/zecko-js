@@ -21,7 +21,7 @@ export class OrderClient extends BaseClient {
    * as `lineItemsBefore` parameter to get results before that cursor.
    *
    * @param lineItemsAfter
-   * If `data.order.lineItems.pageInfo.hasNextPage` is `true`, then request previous page by passing
+   * If `data.order.lineItems.pageInfo.hasNextPage` is `true`, then request next page by passing
    * `data.order.lineItems.pageInfo.endCursor` as `lineItemsAfter` parameter. You can also pass `data.order.lineItems.edges[i].cursor`
    * as `lineItemsAfter` parameter to get results after that cursor.
    *
