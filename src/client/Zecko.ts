@@ -25,7 +25,7 @@ export class Zecko {
    * <br>
    * <h2>Usage examples:</h2>
    * <h3>Collections</h3>
-   * <b>Get all collections</b>
+   * <b>Get All Collections</b>
    * <br><br>
    *
    * ```
@@ -33,14 +33,14 @@ export class Zecko {
    * return zecko.collectionClient.getAll();
    * ```
    *
-   * <b>Get collection by ID</b>
+   * <b>Get Collection by ID</b>
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
    * return zecko.collectionClient.getById('YOUR_COLLECTION_ID');
    * ```
    * <h3>Products</h3>
-   * <b>Get all products</b>
+   * <b>Get All Products</b>
    * <br><br>
    *
    * ```
@@ -48,7 +48,7 @@ export class Zecko {
    * return zecko.productClient.getAllByCollectionId('YOUR_COLLECTION_ID');
    * ```
    *
-   * <b>Get product by ID</b>
+   * <b>Get Product by ID</b>
    *
    * ```
    * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
