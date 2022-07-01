@@ -17,12 +17,9 @@ export class CollectionClient extends BaseClient {
    * @returns {Promise<CollectionData>}
    */
   async getById(id: string): Promise<CollectionData> {
-    const params = {
-      id: id,
-    };
-    const url = `${APIConstants.API_BASE_URL}/collections`;
+    const url = `${APIConstants.API_BASE_URL}/collections/${id}`;
 
-    return this._get<CollectionData>(url, params, {
+    return this._get<CollectionData>(url, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
