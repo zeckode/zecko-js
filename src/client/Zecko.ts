@@ -2,6 +2,7 @@ import { SDKParams } from '../types/SDKParams';
 
 import { CartClient } from './CartClient';
 import { CollectionClient } from './CollectionClient';
+import { InventoryUnitClient } from './InventoryUnitClient';
 import { OrderClient } from './OrderClient';
 import { ProductClient } from './ProductClient';
 
@@ -18,6 +19,8 @@ export class Zecko {
   readonly cartClient: CartClient;
 
   readonly orderClient: OrderClient;
+
+  readonly inventoryUnitClient: InventoryUnitClient;
 
   /**
    *
@@ -135,5 +138,6 @@ export class Zecko {
     this.productClient = new ProductClient(this.accessToken);
     this.cartClient = new CartClient(this.accessToken);
     this.orderClient = new OrderClient(this.accessToken);
+    this.inventoryUnitClient = new InventoryUnitClient(this.accessToken);
   }
 }

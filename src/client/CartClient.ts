@@ -88,7 +88,7 @@ export class CartClient extends BaseClient {
    */
 
   async completeCartById(id: string, cartCompleteRequest: CartCompleteRequest): Promise<OrderData> {
-    const url = `${APIConstants.API_BASE_URL}/carts/complete/${id}`;
+    const url = `${APIConstants.API_BASE_URL}/carts/${id}/complete`;
 
     return this._post<OrderData>(url, null, cartCompleteRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
