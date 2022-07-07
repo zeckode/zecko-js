@@ -61,7 +61,6 @@ export class InventoryUnitClient extends BaseClient {
    * @param id Inventory Unit ID
    *
    * @return {Promise<InventoryUnitHistory>}
-   * InventoryUnit object contains inventoryUnit history details
    */
 
   async trackById(id: string): Promise<InventoryUnitHistory> {
