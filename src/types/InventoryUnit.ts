@@ -9,3 +9,17 @@ export type InventoryUnit = {
   readonly isReturnable: boolean;
   readonly isExchangeable: boolean;
 };
+
+export type InventoryUnitHistoryEntry = {
+  readonly inventoryUnitId: number;
+  readonly status: InventoryUnitStatus;
+  readonly occurredAt: Date;
+};
+
+export type InventoryUnitHistoryWrapper = {
+  readonly history: readonly InventoryUnitHistoryEntry[];
+};
+
+export type InventoryUnitHistory = {
+  readonly data: InventoryUnitHistoryWrapper;
+};

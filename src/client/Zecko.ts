@@ -2,6 +2,7 @@ import { SDKParams } from '../types/SDKParams';
 
 import { CartClient } from './CartClient';
 import { CollectionClient } from './CollectionClient';
+import { InventoryUnitClient } from './InventoryUnitClient';
 import { OrderClient } from './OrderClient';
 import { ProductClient } from './ProductClient';
 
@@ -18,6 +19,8 @@ export class Zecko {
   readonly cartClient: CartClient;
 
   readonly orderClient: OrderClient;
+
+  readonly inventoryUnitClient: InventoryUnitClient;
 
   /**
    *
@@ -122,6 +125,36 @@ export class Zecko {
    * return zecko.orderClient.getAllByCustomerId('YOUR_CUSTOMER_ID');
    * ```
    *
+   * <h3>Inventory Unit</h3>
+   * <b>Cancel Inventory Unit by ID</b>
+   * <br><br>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.inventoryUnitClient.cancelById('YOUR_INVENTORY_UNIT_ID');
+   * ```
+   *
+   * <b>Return Inventory Unit by ID</b>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.inventoryUnitClient.returnById('YOUR_INVENTORY_UNIT_ID');
+   * ```
+   *
+   * <b>Exchange Inventory Unit by ID</b>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.inventoryUnitClient.exchangeById('YOUR_INVENTORY_UNIT_ID');
+   * ```
+   *
+   * <b>Track Inventory Unit by ID</b>
+   *
+   * ```
+   * const zecko = new Zecko({ accessToken: 'YOUR_ACCESS_TOKEN' });
+   * return zecko.inventoryUnitClient.trackById('YOUR_INVENTORY_UNIT_ID');
+   * ```
+   *
    * - All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js <br>
    * - For detailed documentation, visit respective class docs below.
    */
@@ -135,5 +168,6 @@ export class Zecko {
     this.productClient = new ProductClient(this.accessToken);
     this.cartClient = new CartClient(this.accessToken);
     this.orderClient = new OrderClient(this.accessToken);
+    this.inventoryUnitClient = new InventoryUnitClient(this.accessToken);
   }
 }

@@ -5,6 +5,7 @@
 export * from "./client/BaseClient";
 export * from "./client/CartClient";
 export * from "./client/CollectionClient";
+export * from "./client/InventoryUnitClient";
 export * from "./client/OrderClient";
 export * from "./client/ProductClient";
 export * from "./client/Zecko";
