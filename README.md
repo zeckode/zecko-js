@@ -128,5 +128,31 @@ return zecko.orderClient.getById('YOUR_ORDER_ID');
 return zecko.orderClient.getAllByCustomerId('YOUR_CUSTOMER_ID');
 ```
 
+### [Inventory Unit](https://zecko.co/zecko-js/classes/InventoryUnitClient.html)
+
+<b>[Cancel Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#cancelById)</b>
+
+```js
+return zecko.inventoryUnitClient.cancelById('YOUR_INVENTORY_UNIT_ID');
+```
+
+<b>[Exchange Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#exchangeById)</b>
+
+```js
+return zecko.inventoryUnitClient.exchangeById('YOUR_INVENTORY_UNIT_ID');
+```
+
+<b>[Return Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#returnById)</b>
+
+```js
+return zecko.inventoryUnitClient.returnById('YOUR_INVENTORY_UNIT_ID');
+```
+
+<b>[Track Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#trackById)</b>
+
+```js
+return zecko.inventoryUnitClient.trackById('YOUR_INVENTORY_UNIT_ID');
+```
+
 > - All examples available at https://github.com/zeckode/zecko-js-examples/tree/main/src/examples/js.
 > - For detailed documentation, visit respective class [docs](https://zecko.co/zecko-js/modules.html).
