@@ -20,6 +20,7 @@ export * from "./types/Enums";
 export * from "./types/Image";
 export * from "./types/InventoryUnit";
 export * from "./types/LineItem";
+export * from "./types/MetaField";
 export * from "./types/Money";
 export * from "./types/Order";
 export * from "./types/PageInfo";

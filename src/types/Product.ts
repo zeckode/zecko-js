@@ -1,5 +1,6 @@
 import { ProductStatus } from './Enums';
 import { Image, ImageEdges } from './Image';
+import { MetaFieldEdges } from './MetaField';
 import { PageInfo } from './PageInfo';
 import { PriceRange } from './PriceRange';
 import { VariantEdges } from './Variant';
@@ -29,6 +30,7 @@ export type Product = {
   readonly totalVariants: number;
   readonly variants: VariantEdges;
   readonly vendor: string;
+  readonly metafields: MetaFieldEdges;
 };
 
 export type ProductWrapper = {
