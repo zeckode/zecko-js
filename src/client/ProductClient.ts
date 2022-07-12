@@ -63,22 +63,36 @@ export class ProductClient extends BaseClient {
    * `data.product.variants.pageInfo.endCursor` as `variantsAfter` parameter. You can also pass `data.product.variants.edges[i].cursor`
    * as `variantsAfter` parameter to get results after that cursor.
    *
+   * @param metaFieldsBefore
+   * If `data.product.metaFields.pageInfo.hasPreviousPage` is `true`, then request previous page by passing
+   * `data.product.metaFields.pageInfo.startCursor` as `metaFieldsBefore` parameter. You can also pass `data.product.metaFields.edges[i].cursor`
+   * as `metaFieldsBefore` parameter to get results before that cursor.
+   *
+   * @param metaFieldsAfter
+   * If `data.product.metaFields.pageInfo.hasNextPage` is `true`, then request next page by passing
+   * `data.product.metaFields.pageInfo.endCursor` as `metaFieldsAfter` parameter. You can also pass `data.product.metaFields.edges[i].cursor`
+   * as `metaFieldsAfter` parameter to get results after that cursor.
+   *
    * @returns {Promise<ProductData>}
-   * Has a maximum of 10 images and 5 variants. To request further images and variants,
-   * use `imagesAfter` and `variantsAfter` parameters respectively.
+   * Has a maximum of 20 images, 20 variants and 10 metaFields. To request further images, variants and metaFields,
+   * use `imagesAfter`, `variantsAfter` and `metaFieldsAfter` parameters respectively.
    */
   async getById(
     id: string,
     imagesBefore?: string,
     imagesAfter?: string,
     variantsBefore?: string,
-    variantsAfter?: string
+    variantsAfter?: string,
+    metaFieldsBefore?: string,
+    metaFieldsAfter?: string
   ): Promise<ProductData> {
     const params = {
       imagesBefore: imagesBefore,
       imagesAfter: imagesAfter,
       variantsBefore: variantsBefore,
       variantsAfter: variantsAfter,
+      metaFieldsBefore: metaFieldsBefore,
+      metaFieldsAfter: metaFieldsAfter,
     };
     const url = `${APIConstants.API_BASE_URL}/products/${id}`;
 
