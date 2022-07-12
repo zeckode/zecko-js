@@ -74,7 +74,7 @@ export class ProductClient extends BaseClient {
    * as `metaFieldsAfter` parameter to get results after that cursor.
    *
    * @returns {Promise<ProductData>}
-   * Has a maximum of 10 images, 20 variants and 10 metaFields. To request further images, variants and metaFields,
+   * Has a maximum of 20 images, 20 variants and 10 metaFields. To request further images, variants and metaFields,
    * use `imagesAfter`, `variantsAfter` and `metaFieldsAfter` parameters respectively.
    */
   async getById(
