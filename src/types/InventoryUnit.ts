@@ -1,4 +1,5 @@
 import { InventoryUnitStatus } from './Enums';
+import { LineItem } from './LineItem';
 
 export type InventoryUnit = {
   readonly id: string;
@@ -8,6 +9,8 @@ export type InventoryUnit = {
   readonly isCancellable: boolean;
   readonly isReturnable: boolean;
   readonly isExchangeable: boolean;
+  readonly orderId: string;
+  readonly lineItem: LineItem;
 };
 
 export type InventoryUnitHistoryEntry = {
@@ -22,4 +25,12 @@ export type InventoryUnitHistoryWrapper = {
 
 export type InventoryUnitHistory = {
   readonly data: InventoryUnitHistoryWrapper;
+};
+
+export type InventoryUnitDataWrapper = {
+  readonly inventoryUnitResponse: InventoryUnit;
+};
+
+export type InventoryUnitData = {
+  readonly data: InventoryUnitDataWrapper;
 };
