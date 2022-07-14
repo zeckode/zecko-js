@@ -1,5 +1,5 @@
 import { APIConstants } from '../constants/APIConstants';
-import { InventoryUnitHistory } from '../types/InventoryUnit';
+import { InventoryUnitData, InventoryUnitHistory } from '../types/InventoryUnit';
 
 import { BaseClient } from './BaseClient';
 
@@ -15,13 +15,13 @@ export class InventoryUnitClient extends BaseClient {
    *
    * @param id Inventory Unit ID
    *
-   * @return {Promise<void>}
+   * @return {Promise<InventoryUnitData>}
    */
 
-  async cancelById(id: string): Promise<void> {
+  async cancelById(id: string): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/cancel`;
 
-    return this._post<void>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -30,13 +30,13 @@ export class InventoryUnitClient extends BaseClient {
    *
    * @param id Inventory Unit ID
    *
-   * @return {Promise<void>}
+   * @return {Promise<InventoryUnitData>}
    */
 
-  async returnById(id: string): Promise<void> {
+  async returnById(id: string): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/return`;
 
-    return this._post<void>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -45,13 +45,13 @@ export class InventoryUnitClient extends BaseClient {
    *
    * @param id Inventory Unit ID
    *
-   * @return {Promise<void>}
+   * @return {Promise<InventoryUnitData>}
    */
 
-  async exchangeById(id: string): Promise<void> {
+  async exchangeById(id: string): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/exchange`;
 
-    return this._post<void>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, null, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
