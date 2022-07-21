@@ -25,7 +25,7 @@ export class ProductClient extends BaseClient {
    * as `after` parameter to get results after that cursor.
    *
    * @returns {Promise<ProductsData>}
-   * Paginated products list of maximum 20 products. To request further products, use `after` parameter.
+   * Paginated products list of maximum 10 products. To request further products, use `after` parameter.
    */
   async getAllByCollectionId(collectionId: string, before?: string, after?: string): Promise<ProductsData> {
     const params = {
