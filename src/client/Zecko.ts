@@ -105,6 +105,7 @@ export class Zecko {
           address2: 'YOUR_CUSTOMER_ADDRESS', // Typically for the number of the apartment, suite, or unit.
           city: 'YOUR_CUSTOMER_CITY',
           firstName: 'YOUR_CUSTOMER_FIRST_NAME',
+           // Optional Field
           lastName: 'YOUR_CUSTOMER_LAST_NAME',
           phone: 'YOUR_CUSTOMER_PHONE_NUMBER',
           zip: 'YOUR_CUSTOMER_ZIP_CODE',
