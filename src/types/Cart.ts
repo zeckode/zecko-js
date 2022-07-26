@@ -62,4 +62,6 @@ export type CartActionRequest = {
 
 export type CartCompleteRequest = {
   readonly paymentMethod: PaymentMethod;
+  readonly discountCode: string;
+  readonly shippingAddress: Address;
 };
