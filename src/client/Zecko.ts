@@ -100,9 +100,10 @@ export class Zecko {
    *    paymentMethod: 'YOUR_PAYMENT_METHOD',
    *    discountCode: 'YOUR_DISCOUNT_COUPON_CODE',
         shippingAddress: {
-          address1: 'YOUR_CUSTOMER_ADDRESS', // Typically for the street address or PO Box number.
-          // Optional Field
-          address2: 'YOUR_CUSTOMER_ADDRESS', // Typically for the number of the apartment, suite, or unit.
+          // Typically for the street address or PO Box number
+          address1: 'YOUR_CUSTOMER_ADDRESS',
+          // Optional Field, Typically for the number of the apartment, suite, or unit
+          address2: 'YOUR_CUSTOMER_ADDRESS',
           city: 'YOUR_CUSTOMER_CITY',
           firstName: 'YOUR_CUSTOMER_FIRST_NAME',
            // Optional Field
