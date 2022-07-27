@@ -6,7 +6,7 @@ export type Address = {
   readonly city: string;
   readonly company: string;
   readonly country: string;
-  readonly countryCodeV2: CountryCode;
+  readonly countryCode: CountryCode;
   readonly firstName: string;
   readonly id: string;
   readonly lastName: string;
