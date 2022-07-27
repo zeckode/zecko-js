@@ -97,20 +97,15 @@ return zecko.cartClient.completeCartById('YOUR_CART_ID', {
   paymentMethod: 'YOUR_PAYMENT_METHOD',
   discountCode: 'YOUR_DISCOUNT_COUPON_CODE',
   shippingAddress: {
-    // Typically for the street address or PO Box number
-    address1: 'YOUR_CUSTOMER_ADDRESS',
-    // Optional Field, Typically for the number of the apartment, suite, or unit
-    address2: 'YOUR_CUSTOMER_ADDRESS',
+    address1: 'YOUR_CUSTOMER_ADDRESS', // For Street address or PO Box number
+    address2: 'YOUR_CUSTOMER_ADDRESS', // Optional Field, For Apartment Details
     city: 'YOUR_CUSTOMER_CITY',
     firstName: 'YOUR_CUSTOMER_FIRST_NAME',
-    // Optional Field
-    lastName: 'YOUR_CUSTOMER_LAST_NAME',
+    lastName: 'YOUR_CUSTOMER_LAST_NAME', // Optional Field
     phone: 'YOUR_CUSTOMER_PHONE_NUMBER',
     zip: 'YOUR_CUSTOMER_ZIP_CODE',
-    // Optional Field
-    country: 'YOUR_CUSTOMER_COUNTRY',
-    // Optional Field
-    countryCode: 'YOUR_CUSTOMER_COUNTRY_CODE',
+    country: 'YOUR_CUSTOMER_COUNTRY', // Optional Field
+    countryCode: 'YOUR_CUSTOMER_COUNTRY_CODE', // Optional Field
   },
 });
 ```
