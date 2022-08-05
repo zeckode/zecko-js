@@ -1,5 +1,5 @@
 import { APIConstants } from '../constants/APIConstants';
-import { InventoryUnitData, InventoryUnitHistory } from '../types/InventoryUnit';
+import { InventoryUnitActionRequest, InventoryUnitData, InventoryUnitHistory } from '../types/InventoryUnit';
 
 import { BaseClient } from './BaseClient';
 
@@ -18,10 +18,10 @@ export class InventoryUnitClient extends BaseClient {
    * @return {Promise<InventoryUnitData>}
    */
 
-  async cancelById(id: string): Promise<InventoryUnitData> {
+  async cancelById(id: string, inventoryUnitActionRequest: InventoryUnitActionRequest): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/cancel`;
 
-    return this._post<InventoryUnitData>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, inventoryUnitActionRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -33,10 +33,10 @@ export class InventoryUnitClient extends BaseClient {
    * @return {Promise<InventoryUnitData>}
    */
 
-  async returnById(id: string): Promise<InventoryUnitData> {
+  async returnById(id: string, inventoryUnitActionRequest: InventoryUnitActionRequest): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/return`;
 
-    return this._post<InventoryUnitData>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, inventoryUnitActionRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -48,10 +48,10 @@ export class InventoryUnitClient extends BaseClient {
    * @return {Promise<InventoryUnitData>}
    */
 
-  async exchangeById(id: string): Promise<InventoryUnitData> {
+  async exchangeById(id: string, inventoryUnitActionRequest: InventoryUnitActionRequest): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/exchange`;
 
-    return this._post<InventoryUnitData>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, inventoryUnitActionRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
