@@ -39,6 +39,14 @@ export type InventoryUnitData = {
   readonly data: InventoryUnitDataWrapper;
 };
 
-export type InventoryUnitActionRequest = {
+export type InventoryUnitCancelRequest = {
+  readonly cancelReason: string;
+};
+
+export type InventoryUnitReturnRequest = {
   readonly returnReason: string;
+};
+
+export type InventoryUnitExchangeRequest = {
+  readonly exchangeReason: string;
 };
