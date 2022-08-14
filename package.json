@@ -1,6 +1,6 @@
 {
   "name": "zecko",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Zecko JS SDK",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
