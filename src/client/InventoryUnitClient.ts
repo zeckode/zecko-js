@@ -1,5 +1,11 @@
 import { APIConstants } from '../constants/APIConstants';
-import { InventoryUnitData, InventoryUnitHistory } from '../types/InventoryUnit';
+import {
+  InventoryUnitCancelRequest,
+  InventoryUnitData,
+  InventoryUnitExchangeRequest,
+  InventoryUnitHistory,
+  InventoryUnitReturnRequest,
+} from '../types/InventoryUnit';
 
 import { BaseClient } from './BaseClient';
 
@@ -18,10 +24,10 @@ export class InventoryUnitClient extends BaseClient {
    * @return {Promise<InventoryUnitData>}
    */
 
-  async cancelById(id: string): Promise<InventoryUnitData> {
+  async cancelById(id: string, inventoryUnitCancelRequest: InventoryUnitCancelRequest): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/cancel`;
 
-    return this._post<InventoryUnitData>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, inventoryUnitCancelRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -33,10 +39,10 @@ export class InventoryUnitClient extends BaseClient {
    * @return {Promise<InventoryUnitData>}
    */
 
-  async returnById(id: string): Promise<InventoryUnitData> {
+  async returnById(id: string, inventoryUnitReturnRequest: InventoryUnitReturnRequest): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/return`;
 
-    return this._post<InventoryUnitData>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, inventoryUnitReturnRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
@@ -48,10 +54,13 @@ export class InventoryUnitClient extends BaseClient {
    * @return {Promise<InventoryUnitData>}
    */
 
-  async exchangeById(id: string): Promise<InventoryUnitData> {
+  async exchangeById(
+    id: string,
+    inventoryUnitExchangeRequest: InventoryUnitExchangeRequest
+  ): Promise<InventoryUnitData> {
     const url = `${APIConstants.API_BASE_URL}/inventoryUnits/${id}/exchange`;
 
-    return this._post<InventoryUnitData>(url, null, null, {
+    return this._post<InventoryUnitData>(url, null, inventoryUnitExchangeRequest, {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }

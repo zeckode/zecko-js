@@ -145,19 +145,25 @@ return zecko.orderClient.getAllByCustomerId('YOUR_CUSTOMER_ID');
 <b>[Cancel Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#cancelById)</b>
 
 ```js
-return zecko.inventoryUnitClient.cancelById('YOUR_INVENTORY_UNIT_ID');
-```
-
-<b>[Exchange Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#exchangeById)</b>
-
-```js
-return zecko.inventoryUnitClient.exchangeById('YOUR_INVENTORY_UNIT_ID');
+return zecko.inventoryUnitClient.cancelById('YOUR_INVENTORY_UNIT_ID', {
+  cancelReason: 'YOUR_REASON_FOR_CANCELLATION',
+});
 ```
 
 <b>[Return Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#returnById)</b>
 
 ```js
-return zecko.inventoryUnitClient.returnById('YOUR_INVENTORY_UNIT_ID');
+return zecko.inventoryUnitClient.returnById('YOUR_INVENTORY_UNIT_ID', {
+  returnReason: 'YOUR_REASON_FOR_RETURN',
+});
+```
+
+<b>[Exchange Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#exchangeById)</b>
+
+```js
+return zecko.inventoryUnitClient.exchangeById('YOUR_INVENTORY_UNIT_ID', {
+  exchangeReason: 'YOUR_REASON_FOR_EXCHANGE',
+});
 ```
 
 <b>[Track Inventory Unit by ID](https://zecko.co/zecko-js/classes/InventoryUnitClient.html#trackById)</b>
