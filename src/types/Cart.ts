@@ -4,7 +4,7 @@ import { Discount } from './Discount';
 import { CurrencyCode, DraftOrderStatus, PaymentMethod } from './Enums';
 import { LineItemEdges } from './LineItem';
 import { Order } from './Order';
-import { ShippingLine } from './Shipping';
+import { AvailableShippingRate, ShippingLine } from './Shipping';
 import { TaxLine } from './TaxLine';
 import { UserError } from './UserError';
 
@@ -28,6 +28,7 @@ export type Cart = {
   readonly taxesIncluded: boolean;
   readonly totalPrice: string;
   readonly totalShippingPrice: string;
+  readonly availableShippingRate: readonly AvailableShippingRate[];
   readonly totalTax: string;
   readonly updatedAt: Date;
 };
