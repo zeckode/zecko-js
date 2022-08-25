@@ -4,7 +4,7 @@ import { Discount } from './Discount';
 import { CurrencyCode, DraftOrderStatus, PaymentMethod } from './Enums';
 import { LineItemEdges } from './LineItem';
 import { Order } from './Order';
-import { ShippingLine } from './ShippingLine';
+import { ShippingLine } from './Shipping';
 import { TaxLine } from './TaxLine';
 import { UserError } from './UserError';
 
