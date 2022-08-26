@@ -28,7 +28,7 @@ export * from "./types/PriceRange";
 export * from "./types/Product";
 export * from "./types/SDKParams";
 export * from "./types/SelectedOption";
-export * from "./types/ShippingLine";
+export * from "./types/Shipping";
 export * from "./types/TaxLine";
 export * from "./types/UserError";
 export * from "./types/Variant";

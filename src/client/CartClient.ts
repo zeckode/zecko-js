@@ -29,7 +29,12 @@ export class CartClient extends BaseClient {
    * @returns {Promise<CartData>}
    * Cart object containing maximum `20` line items
    * To request further line items, use `lineItemsAfter` parameter
-   * To request previous line items, use `lineItemsBefore` parameter
+   * To request previous line items, use `lineItemsBefore` parameter.
+   *
+   * Cart object contains `availableShippingRates` key which you can show to your customers so that they can select the
+   * shipping (COD or Prepaid) they would like to avail. Appropriate order charges (items charges + shipping charges) should
+   * be collected from the customer (in case of Prepaid) or shown to the customer (in case of COD - to be collected at the time
+   * of delivery).
    */
   async getByCustomerId(customerId: string, lineItemsBefore?: string, lineItemsAfter?: string): Promise<CartData> {
     const params = {
@@ -81,7 +86,10 @@ export class CartClient extends BaseClient {
    *
    * @param id Cart ID
    *
-   * @param cartCompleteRequest Object that contains Payment Method
+   * @param cartCompleteRequest
+   *
+   * In case `cartCompleteRequest.paymentMethod` is sent as a value not present in any key of `availableShippingRates` of get cart request,
+   * the request to complete cart will throw a 400 Bad Request.
    *
    * @returns {Promise<OrderData>}
    * Order Object containing maximum `20` line items and each line item containing maximum `10` images

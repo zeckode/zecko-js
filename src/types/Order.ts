@@ -2,7 +2,7 @@ import { Address } from './Address';
 import { LineItemEdges } from './LineItem';
 import { MoneyBag, Refund } from './Money';
 import { PageInfo } from './PageInfo';
-import { ShippingLine } from './ShippingLine';
+import { ShippingLine } from './Shipping';
 import { TaxLine } from './TaxLine';
 import { UserError } from './UserError';
 
