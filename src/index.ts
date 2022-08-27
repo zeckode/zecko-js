@@ -24,6 +24,7 @@ export * from "./types/MetaField";
 export * from "./types/Money";
 export * from "./types/Order";
 export * from "./types/PageInfo";
+export * from "./types/Payment";
 export * from "./types/PriceRange";
 export * from "./types/Product";
 export * from "./types/SDKParams";
