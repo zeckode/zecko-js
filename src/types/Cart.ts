@@ -4,7 +4,7 @@ import { Discount } from './Discount';
 import { CurrencyCode, DraftOrderStatus, PaymentMethod } from './Enums';
 import { LineItemEdges } from './LineItem';
 import { Order } from './Order';
-import { AvailableShippingRate, ShippingLine } from './Shipping';
+import { AvailableShippingRate, ShippingAddress, ShippingLine } from './Shipping';
 import { TaxLine } from './TaxLine';
 import { UserError } from './UserError';
 
@@ -62,7 +62,8 @@ export type CartActionRequest = {
 };
 
 export type CartCompleteRequest = {
+  readonly customer: Customer;
+  readonly shippingAddress: ShippingAddress;
   readonly paymentMethod: PaymentMethod;
-  readonly discountCode: string;
-  readonly shippingAddress: Address;
+  readonly discountCode?: string;
 };
