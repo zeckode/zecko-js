@@ -96,6 +96,9 @@ return zecko.cartClient.completeCartById('YOUR_CART_ID', {
   // `YOUR_PAYMENT_METHOD` can be one of `COD or PREPAID`
   paymentMethod: 'YOUR_PAYMENT_METHOD',
   discountCode: 'YOUR_DISCOUNT_COUPON_CODE',
+  paymentInfo: {
+    totalPrice: 'TOTAL_PRICE_OF_YOUR_CART',
+  },
   shippingAddress: {
     address1: 'YOUR_CUSTOMER_ADDRESS', // For Street address or PO Box number
     address2: 'YOUR_CUSTOMER_ADDRESS', // Optional Field, For Apartment Details
