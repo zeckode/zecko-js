@@ -93,20 +93,22 @@ return zecko.cartClient.addToCart({
 
 ```js
 return zecko.cartClient.completeCartById('YOUR_CART_ID', {
-  // `YOUR_PAYMENT_METHOD` can be one of `COD or PREPAID`
-  paymentMethod: 'YOUR_PAYMENT_METHOD',
-  discountCode: 'YOUR_DISCOUNT_COUPON_CODE',
+  customer: {
+    email: 'YOUR_CUSTOMER_EMAIL_ADDRESS',
+  },
   shippingAddress: {
     address1: 'YOUR_CUSTOMER_ADDRESS', // For Street address or PO Box number
     address2: 'YOUR_CUSTOMER_ADDRESS', // Optional Field, For Apartment Details
     city: 'YOUR_CUSTOMER_CITY',
+    country: 'YOUR_CUSTOMER_COUNTRY', // Optional Field
+    countryCode: 'YOUR_CUSTOMER_COUNTRY_CODE', // Optional Field
     firstName: 'YOUR_CUSTOMER_FIRST_NAME',
     lastName: 'YOUR_CUSTOMER_LAST_NAME', // Optional Field
     phone: 'YOUR_CUSTOMER_PHONE_NUMBER',
     zip: 'YOUR_CUSTOMER_ZIP_CODE',
-    country: 'YOUR_CUSTOMER_COUNTRY', // Optional Field
-    countryCode: 'YOUR_CUSTOMER_COUNTRY_CODE', // Optional Field
   },
+  paymentMethod: 'YOUR_PAYMENT_METHOD', // Can be one of `COD or PREPAID
+  discountCode: 'YOUR_DISCOUNT_COUPON_CODE', // Optional Field
 });
 ```
 
