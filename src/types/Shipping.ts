@@ -1,4 +1,4 @@
-import { PaymentMethod } from './Enums';
+import { CountryCode, PaymentMethod } from './Enums';
 import { Money, MoneyBag } from './Money';
 import { TaxLine } from './TaxLine';
 
@@ -21,4 +21,16 @@ export type AvailableShippingRate = {
   readonly price: Money;
   readonly title: string;
   readonly paymentMethod: PaymentMethod;
+};
+
+export type ShippingAddress = {
+  readonly address1: string;
+  readonly address2?: string;
+  readonly city: string;
+  readonly country?: string;
+  readonly countryCode?: CountryCode;
+  readonly firstName: string;
+  readonly lastName?: string;
+  readonly phone: string;
+  readonly zip: string;
 };
