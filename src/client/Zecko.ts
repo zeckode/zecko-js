@@ -110,7 +110,7 @@ export class Zecko {
    *       phone: 'YOUR_CUSTOMER_PHONE_NUMBER',
    *       zip: 'YOUR_CUSTOMER_ZIP_CODE',
    *     },
-   *     paymentMethod: 'YOUR_PAYMENT_METHOD', // Can be one of `COD or PREPAID
+   *     paymentMethod: 'YOUR_PAYMENT_METHOD', // Can be one of `COD` or `PREPAID`
    *     discountCode: 'YOUR_DISCOUNT_COUPON_CODE', // Optional Field
    *   }
    * );
