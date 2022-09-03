@@ -9,3 +9,8 @@ export type Discount = {
   readonly value: number;
   readonly valueType: DiscountType;
 };
+
+export type DiscountCodeInput = {
+  readonly type: string;
+  readonly code: string;
+};

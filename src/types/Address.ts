@@ -8,6 +8,8 @@ export type Address = {
   readonly country: string;
   readonly countryCode: CountryCode;
   readonly firstName: string;
+  readonly formatted: readonly string[];
+  readonly formattedArea: string;
   readonly id: string;
   readonly lastName: string;
   readonly latitude: number;

@@ -1,10 +1,11 @@
 import { Address } from './Address';
-import { Customer } from './Customer';
-import { Discount } from './Discount';
-import { CurrencyCode, DraftOrderStatus, PaymentMethod } from './Enums';
+import { Customer, CustomerInput } from './Customer';
+import { Discount, DiscountCodeInput } from './Discount';
+import { CurrencyCode, DraftOrderStatus } from './Enums';
 import { LineItemEdges } from './LineItem';
 import { Order } from './Order';
-import { AvailableShippingRate, ShippingAddress, ShippingLine } from './Shipping';
+import { PaymentInfoInput } from './Payment';
+import { AvailableShippingRate, ShippingAddressInput, ShippingLine, ShippingLineInput } from './Shipping';
 import { TaxLine } from './TaxLine';
 import { UserError } from './UserError';
 
@@ -61,9 +62,21 @@ export type CartActionRequest = {
   readonly quantity: number;
 };
 
+export type CartUpdateRequest =
+  | {
+      readonly customer: CustomerInput;
+    }
+  | {
+      readonly shippingAddress: ShippingAddressInput;
+    }
+  | {
+      readonly shippingLine: ShippingLineInput;
+    };
+
+export type CartDiscountRequest = {
+  readonly discounts: readonly DiscountCodeInput[];
+};
+
 export type CartCompleteRequest = {
-  readonly customer: Customer;
-  readonly shippingAddress: ShippingAddress;
-  readonly paymentMethod: PaymentMethod;
-  readonly discountCode?: string;
+  readonly payment: PaymentInfoInput;
 };
