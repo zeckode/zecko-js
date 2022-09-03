@@ -44,3 +44,7 @@ export enum CurrencyCode {
 export enum CountryCode {
   IN,
 }
+
+export enum DiscountCodeType {
+  COUPON,
+}
