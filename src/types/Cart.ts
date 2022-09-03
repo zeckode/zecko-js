@@ -1,11 +1,11 @@
-import { Address } from './Address';
+import { Address, AddressInput } from './Address';
 import { Customer, CustomerInput } from './Customer';
 import { Discount, DiscountCodeInput } from './Discount';
 import { CurrencyCode, DraftOrderStatus } from './Enums';
 import { LineItemEdges } from './LineItem';
 import { Order } from './Order';
 import { PaymentInfoInput } from './Payment';
-import { AvailableShippingRate, ShippingAddressInput, ShippingLine, ShippingLineInput } from './Shipping';
+import { AvailableShippingRate, ShippingLine, ShippingLineInput } from './Shipping';
 import { TaxLine } from './TaxLine';
 import { UserError } from './UserError';
 
@@ -67,7 +67,7 @@ export type CartUpdateRequest =
       readonly customer: CustomerInput;
     }
   | {
-      readonly shippingAddress: ShippingAddressInput;
+      readonly shippingAddress: AddressInput;
     }
   | {
       readonly shippingLine: ShippingLineInput;

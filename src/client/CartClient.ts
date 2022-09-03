@@ -92,7 +92,7 @@ export class CartClient extends BaseClient {
   /**
    * @param id Cart ID
    *
-   * @param cartUpdateRequest Object that contains 'Customer', 'ShippingAddressInput' or 'shippingLineInput'
+   * @param cartUpdateRequest Object that contains 'Customer', 'AddressInput' or 'shippingLineInput'
    *
    * @returns {Promise<CartData>}
    * Cart object containing maximum `20` line items
