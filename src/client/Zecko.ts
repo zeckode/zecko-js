@@ -88,6 +88,8 @@ export class Zecko {
    *  quantity: 'YOUR_PRODUCT_VARIANT_QUANTITY'
    * });
    * ```
+   * 
+   * <b>update</b>
    *
    * <b>Complete Cart by ID</b>
    *

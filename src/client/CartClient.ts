@@ -97,7 +97,7 @@ export class CartClient extends BaseClient {
    * @returns {Promise<CartData>}
    * Cart object containing maximum `20` line items
    */
-  async update(id: string, cartUpdateRequest: CartUpdateRequest): Promise<CartData> {
+  async updateById(id: string, cartUpdateRequest: CartUpdateRequest): Promise<CartData> {
     const url = `${APIConstants.API_BASE_URL}/carts/${id}/update`;
 
     return this._patch<CartData>(url, null, cartUpdateRequest, {
@@ -114,7 +114,7 @@ export class CartClient extends BaseClient {
    * @returns {Promise<CartData>}
    * Cart object containing maximum `20` line items
    */
-  async addDiscount(id: string, cartDiscountRequest: CartDiscountRequest): Promise<CartData> {
+  async addDiscountById(id: string, cartDiscountRequest: CartDiscountRequest): Promise<CartData> {
     const url = `${APIConstants.API_BASE_URL}/carts/${id}/add-discount`;
 
     return this._patch<CartData>(url, null, cartDiscountRequest, {
@@ -131,7 +131,7 @@ export class CartClient extends BaseClient {
    * @returns {Promise<CartData>}
    * Cart object containing maximum `20` line items
    */
-  async removeDiscount(id: string, cartDiscountRequest: CartDiscountRequest): Promise<CartData> {
+  async removeDiscountById(id: string, cartDiscountRequest: CartDiscountRequest): Promise<CartData> {
     const url = `${APIConstants.API_BASE_URL}/carts/${id}/remove-discount`;
 
     return this._patch<CartData>(url, null, cartDiscountRequest, {
