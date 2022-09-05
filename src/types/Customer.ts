@@ -1,3 +1,3 @@
-export type Customer = {
+export type CustomerInput = {
   readonly email: string;
 };

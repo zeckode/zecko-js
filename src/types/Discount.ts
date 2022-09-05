@@ -1,4 +1,4 @@
-import { DiscountType } from './Enums';
+import { DiscountCodeType, DiscountType } from './Enums';
 import { Money } from './Money';
 
 export type Discount = {
@@ -8,4 +8,9 @@ export type Discount = {
   readonly title: string;
   readonly value: number;
   readonly valueType: DiscountType;
+};
+
+export type DiscountCodeInput = {
+  readonly type: DiscountCodeType;
+  readonly code: string;
 };

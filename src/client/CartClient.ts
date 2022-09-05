@@ -1,5 +1,12 @@
 import { APIConstants } from '../constants/APIConstants';
-import { CartActionRequest, CartCompleteRequest, CartData, DeleteCart } from '../types/Cart';
+import {
+  CartActionRequest,
+  CartCompleteRequest,
+  CartData,
+  CartDiscountRequest,
+  CartUpdateRequest,
+  DeleteCart,
+} from '../types/Cart';
 import { OrderData } from '../types/Order';
 
 import { BaseClient } from './BaseClient';
@@ -83,13 +90,61 @@ export class CartClient extends BaseClient {
   }
 
   /**
+   * @param id Cart ID
+   *
+   * @param cartUpdateRequest Object that contains 'Customer', 'AddressInput' or 'shippingLineInput'
+   *
+   * @returns {Promise<CartData>}
+   * Cart object containing maximum `20` line items
+   */
+  async updateById(id: string, cartUpdateRequest: CartUpdateRequest): Promise<CartData> {
+    const url = `${APIConstants.API_BASE_URL}/carts/${id}/update`;
+
+    return this._patch<CartData>(url, null, cartUpdateRequest, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+      'Content-Type': 'application/json',
+    });
+  }
+
+  /**
+   * @param id Cart ID
+   *
+   * @param cartDiscountRequest Object that contains array of 'DiscountCodeInput'
+   *
+   * @returns {Promise<CartData>}
+   * Cart object containing maximum `20` line items
+   */
+  async addDiscountById(id: string, cartDiscountRequest: CartDiscountRequest): Promise<CartData> {
+    const url = `${APIConstants.API_BASE_URL}/carts/${id}/add-discount`;
+
+    return this._patch<CartData>(url, null, cartDiscountRequest, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+      'Content-Type': 'application/json',
+    });
+  }
+
+  /**
+   * @param id Cart ID
+   *
+   * @param cartDiscountRequest Object that contains array of 'DiscountCodeInput'
+   *
+   * @returns {Promise<CartData>}
+   * Cart object containing maximum `20` line items
+   */
+  async removeDiscountById(id: string, cartDiscountRequest: CartDiscountRequest): Promise<CartData> {
+    const url = `${APIConstants.API_BASE_URL}/carts/${id}/remove-discount`;
+
+    return this._patch<CartData>(url, null, cartDiscountRequest, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+      'Content-Type': 'application/json',
+    });
+  }
+
+  /**
    *
    * @param id Cart ID
    *
-   * @param cartCompleteRequest
-   *
-   * In case `cartCompleteRequest.paymentMethod` is sent as a value not present in any key of `availableShippingRates` of get cart request,
-   * the request to complete cart will throw a 400 Bad Request.
+   * @param cartCompleteRequest Object that contains `PaymentInfo`
    *
    * @returns {Promise<OrderData>}
    * Order Object containing maximum `20` line items and each line item containing maximum `10` images
