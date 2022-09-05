@@ -63,14 +63,14 @@ export type CartActionRequest = {
 
 export type CartUpdateRequest =
   | {
-    readonly customer: CustomerInput;
-  }
+      readonly customer: CustomerInput;
+    }
   | {
-    readonly shippingAddress: AddressInput;
-  }
+      readonly shippingAddress: AddressInput;
+    }
   | {
-    readonly shippingLine: AvailableShippingRate;
-  };
+      readonly shippingLine: AvailableShippingRate;
+    };
 
 export type CartDiscountRequest = {
   readonly discounts: readonly DiscountCodeInput[];

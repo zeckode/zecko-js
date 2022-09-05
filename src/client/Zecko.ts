@@ -110,8 +110,10 @@ export class Zecko {
    *    zip: 'YOUR_CUSTOMER_ZIP_CODE',
    *  },
    *  shippingLine: {
-   *    price: 'PRICE_OF_SHIPPING_RATE',
-   *    shippingRateHandle: 'UNIQUE_HANDLE_FOR_SHIPPING_RATE',
+   *    handle: 'UNIQUE_HANDLE_FOR_SHIPPING_RATE',
+   *    price: {
+   *      amount: 'PRICE_OF_SHIPPING_RATE';
+   *    },
    *    title: 'TITLE_OF_SHIPPING_RATE',
    *  },
    * });
