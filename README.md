@@ -105,7 +105,7 @@ return zecko.cartClient.updateById('YOUR_CART_ID', {
     firstName: 'YOUR_CUSTOMER_FIRST_NAME',
     lastName: 'YOUR_CUSTOMER_LAST_NAME', // Optional Field
     phone: 'YOUR_CUSTOMER_PHONE_NUMBER',
-    province: 'REGION_OF_ADDRESS', // Like province, state, or district
+    province: 'REGION_OF_ADDRESS', // State or district, country
     zip: 'YOUR_CUSTOMER_ZIP_CODE',
   },
   shippingLine: {
