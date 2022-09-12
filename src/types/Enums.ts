@@ -51,5 +51,5 @@ export enum DiscountCodeType {
 
 export enum PlatFormTitle {
   AMAZON,
-  NYKAA
+  NYKAA,
 }
