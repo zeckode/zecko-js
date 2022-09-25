@@ -6,6 +6,7 @@ import { SelectedOption } from './SelectedOption';
 export type Variant = {
   readonly availableForSale: boolean;
   readonly compareAtPrice: number;
+  readonly discount: number;
   readonly displayName: string;
   readonly id: string;
   readonly image: Image;
