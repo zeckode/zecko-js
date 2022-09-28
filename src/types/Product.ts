@@ -25,7 +25,7 @@ export type Product = {
   readonly priceRangeV2: PriceRange;
   readonly price: string;
   readonly compareAtPrice: string;
-  readonly discount: number;
+  readonly discountPercentage: number;
   readonly platforms: readonly Platform[];
   readonly productType: string;
   readonly status: ProductStatus;
