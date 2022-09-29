@@ -48,3 +48,8 @@ export enum CountryCode {
 export enum DiscountCodeType {
   COUPON,
 }
+
+export enum PlatFormTitle {
+  AMAZON,
+  NYKAA,
+}
