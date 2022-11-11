@@ -100,4 +100,14 @@ export class ProductClient extends BaseClient {
       [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
     });
   }
+
+  async getRealtimeData(
+    id: string,
+  ): Promise<ProductData> {
+    const url = `${APIConstants.API_BASE_URL}/products/realtime/${id}`;
+
+    return this._get<ProductData>(url, {}, {
+      [APIConstants.ZECKO_ACCESS_TOKEN_HEADER_KEY]: this.accessToken,
+    });
+  }
 }
