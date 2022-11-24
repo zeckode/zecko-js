@@ -38,6 +38,7 @@ export type Product = {
   readonly variants: VariantEdges;
   readonly vendor: string;
   readonly metafields: MetaFieldEdges;
+  readonly postOrderProductData: PostOrderProductData;
 };
 
 export type ProductWrapper = {
@@ -65,3 +66,10 @@ export type ProductEdgesWrapper = {
 export type ProductsData = {
   readonly data: ProductEdgesWrapper;
 };
+
+export type PostOrderProductData = {
+  readonly returnDays: number;
+  readonly exchangeDays: number;
+  readonly cancelHours: number;
+  readonly brandReturnPolicyURL: string;
+}
